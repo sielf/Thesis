@@ -1,0 +1,155 @@
+\begin{thebibliography}{10}
+\def\selectlanguageifdefined#1{
+\expandafter\ifx\csname date#1\endcsname\relax
+\else\language\csname l@#1\endcsname\fi}
+\ifx\undefined\url\def\url#1{{\small #1}}\else\fi
+\ifx\undefined\BibUrl\def\BibUrl#1{\url{#1}}\else\fi
+\ifx\undefined\BibAnnote\long\def\BibAnnote#1{(#1)}\else\fi
+\ifx\undefined\BibEmph\def\BibEmph#1{\emph{#1}}\else\fi
+
+\bibitem{Book10}
+\selectlanguageifdefined{russian}
+Kolda~Tamara~G., Sun~Jimeng. Scalable tensor decompositions for multi-aspect
+  data mining,~// Data Mining.ICDM’08. Eighth IEEE International Conference
+  on.
+\newblock 2008.
+
+\bibitem{Book11}
+\selectlanguageifdefined{russian}
+Bro~R., Sidiropoulos~N., Giannakis~G. A fast least squares algorithm for
+  separating trilinear mixtures~// ICA99- Int. Workshop on Independent
+  Component Analysis and Blind Separation.
+\newblock 1999.
+
+\bibitem{Book16}
+\selectlanguageifdefined{russian}
+de~Lathauwer~Lieven, de~Moor~Bart, Vanderwalle~Joos. A multilinear singular
+  value decomposition~// SIAM J. MATRIX ANAL. APPL. Vol. 21, No. 4, pp.
+  1253–1278.
+\newblock 2000.
+
+\bibitem{Book66}
+\selectlanguageifdefined{russian}
+Fletcher~R. Practical methods of optimization~// Wiley.
+\newblock 2000.
+
+\bibitem{Book2}
+\selectlanguageifdefined{russian}
+Y.G.Sosulin. Random variables search and estimate theory.
+\newblock Sov. Radio, 1978.
+
+\bibitem{Book20}
+\selectlanguageifdefined{russian}
+Robust methods based on the hosvd for estimating the model order in parafac
+  models~/ Joao~Pauloand, C.~L.~da~Costaand, Martin~Haardt {[и~др.]}~//
+  Sensor Array and Multichannel Signal Processing Workshop, 2008. SAM 2008. 5th
+  IEEE.
+\newblock 2008.  Jul.
+\newblock {С.}~510 -- 514.
+
+\bibitem{Book25}
+\selectlanguageifdefined{russian}
+Fettweis~Gerhard, Krondorf~Marco, Bittner~Steffen. GFDM - Generalized Frequency
+  Division Multiplexing~// Vehicular Technology Conference, 2009. VTC Spring
+  2009. IEEE 69th.
+\newblock 2009.
+
+\bibitem{Book26}
+\selectlanguageifdefined{russian}
+de~Almeida~André L.~F., Favier~Gérard, Ximenes~Leandro~R.
+  Space-Time-Frequency (STF) MIMO Communication Systems With Blind Receiver
+  Based on a Generalized PARATUCK2 Model~// IEEE TRANSACTIONS ON SIGNAL
+  PROCESSING, VOL. 61, NO. 8,.
+\newblock APR, 2013.
+
+\bibitem{Book27}
+\selectlanguageifdefined{russian}
+Daubechies~I., Defriese~M., Mol.~C.~De. An iterative thresholding algorithm for
+  linear inverse problems with a sparsity constraint~// Commun. Pure Appl.
+  Math, LVII:1413 1457.
+\newblock 2004.
+
+\bibitem{Book28}
+\selectlanguageifdefined{russian}
+Beck~A., Teboulle.~M. A fast iterative shrinkage-thresholding algorithm for
+  linear inverse problems~// SIAM J. Imag. Sci., 2(1):183-202.
+\newblock 2009.
+
+\bibitem{Book29}
+\selectlanguageifdefined{russian}
+Jankiraman~Mohinder. Space-Time-Codes and MIMO systems.
+\newblock Artech House universal personal communications series), 2004.
+
+\bibitem{Book30}
+\selectlanguageifdefined{russian}
+Performance GFDM over frequency selective channels~/ Bruno~M.~Alves,
+  L.L.~Mendes, ~D.A.Guimaraes {[и~др.]}~// Revista Telecemunicationes vol
+  15.
+\newblock Dec 2013.
+
+\bibitem{Book31}
+\selectlanguageifdefined{russian}
+Widely linear estimation for space time coded GFDM imn low-latency
+  Applications~/ M.~Matthe, ~L.L.Mendes, N.~Michailow {[и~др.]}~//
+  ICT-619555.
+\newblock 2014.
+
+\bibitem{Book32}
+\selectlanguageifdefined{russian}
+Cox~Donald. Fundamental limitations on increasing data rate in wireless
+  systems.~// IEEE Communacation magazine.
+\newblock 2008.
+
+\bibitem{Book33}
+\selectlanguageifdefined{russian}
+Matthe~M., Michailow~N., Fettweis~G. Influense of Pulse shaping on bit-error
+  rate Performance and out of band radiation of GFDM~// ICC 14 WS 5G.
+\newblock 2014.
+
+\bibitem{Book34}
+\selectlanguageifdefined{russian}
+Matthe~M., Michailow~N., I.Gaspar. GFDM for 5G cellular networks~// IEEE
+  transactions on commenications vol 62.
+\newblock 2014.
+
+\bibitem{Book35}
+\selectlanguageifdefined{russian}
+Sklar~Bernard. Digital Communcations Fundamental and applications~// Prentice
+  Hall 2 edition.
+\newblock 2001.
+
+\bibitem{Book36}
+\selectlanguageifdefined{russian}
+Wunder~Gerhard, Jung~Peter, Kasparick~Martin. 5GNOW: Non-Orthogonal,
+  Asynchronous Waveforms for Future Mobile Applications~// 5G WIRELESS
+  COMMUNICATION SYSTEMS: PROSPECTS AND CHALLENGES.
+\newblock 2015.
+
+\bibitem{Book37}
+\selectlanguageifdefined{russian}
+Farhang~Arman, Marchetti~Nicola, Doyle~Linda~E. Low Complexity Transceiver
+  Design for GFDM~// IEEE TRANSACTIONS ON COMMUNICATIONS.
+\newblock 2015.
+
+\bibitem{Book38}
+\selectlanguageifdefined{russian}
+LTE compatible 5g PHY based on Generalized Frequency Division multiplexing~/
+  I.~Gaspar, L.L.~Mendes, M.~Matthe {[и~др.]}~// IEEE TRANSACTIONS ON
+  COMMUNICATIONS.
+\newblock 2015.
+
+\bibitem{Book39}
+\selectlanguageifdefined{russian}
+Matthé~Maximilian, Mendes~Luciano~Leonel, Fettweis~Gerhard. Generalized
+  Frequency Division Multiplexing in a Gabor Transform Setting~// IEEE
+  COMMUNICATIONS LETTERS, VOL. 18, NO. 8,.
+\newblock AUGUST 2014.
+
+\bibitem{Book40}
+\selectlanguageifdefined{russian}
+Experimental Testbed for 5G Cognitive Radio Access in 4G LTE Cellular Systems~/
+  Martin~Danneberg, Rohit~Datta, Andreas~Festag {[и~др.]}~// IEEE 8th sensor
+  array and multichannel signal processing workshop SAM.
+\newblock 2014.
+
+\end{thebibliography}

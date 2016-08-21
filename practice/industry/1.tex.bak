@@ -1,0 +1,129 @@
+%\documentclass{article}
+\documentclass
+[   twoside=false,    
+    fontsize=14pt,     
+    DIV=15,           
+    BCOR=17mm,         
+    headsepline, 
+    footsepline, 
+    open=right,        
+    paper=a4,          
+    abstract=true,     
+    listof=totoc,     
+    bibliography=totoc,
+    titlepage,       
+    headinclude=true,  
+    footinclude=false, 
+    numbers=noenddot   
+]   {scrreprt}      %scrreprt   
+
+\usepackage[left=30mm, top=20mm, right=15mm, bottom=30mm]{geometry}
+\sloppy
+\usepackage{setspace}
+\onehalfspacing 
+
+
+
+%\usepackage[OT2,T2A,T2B,T1]{fontenc}
+
+\usepackage[T2B]{fontenc}
+%\usepackage[cp1251]{inputenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage{amsmath,amssymb,amsfonts}  
+\usepackage{setspace} 
+\usepackage{bm} 
+\usepackage{graphicx}  %  insert EPS  \includegraphics
+\usepackage{psfrag} 
+\usepackage{array}
+\usepackage{caption}
+\usepackage{hyperref}
+\usepackage{stfloats}
+\usepackage{textcomp}
+\usepackage{tabulary}
+\usepackage{float}
+\usepackage{epstopdf}
+\usepackage{misccorr}
+\usepackage{times}
+%\usepackage{mathptmx}
+\usepackage{lmodern}
+\usepackage[automark]{scrpage2}
+\usepackage[active]{srcltx}
+
+
+\makeatletter
+\@addtoreset{equation}{chapter}
+\@addtoreset{figure}{chapter}
+\@addtoreset{table}{chapter}
+\renewcommand\theequation{\thechapter.\@arabic\c@equation}
+\renewcommand\thefigure{\thechapter.\@arabic\c@figure}
+\renewcommand\thetable{\thechapter.\@arabic\c@table}
+\makeatother
+
+\setcounter{secnumdepth}{3} % Tiefe der Nummerierung
+\setcounter{tocdepth}{3}    % Tiefe des Inhaltsverzeichnisses
+
+
+% Seitenlayout festlegen. Hier nichts ?ndern!
+\pagestyle{scrplain}
+\ihead[]{}%\headmark}
+\ohead[]{\pagemark}
+\chead[]{}
+\ifoot[]{}
+\ofoot[]{}%\scriptsize \artderausarbeitung\ \namedesautors}
+\cfoot[]{}
+\renewcommand{\titlepagestyle}{scrheadings}
+\renewcommand{\partpagestyle}{scrheadings}
+\renewcommand{\chapterpagestyle}{scrheadings}
+\renewcommand{\indexpagestyle}{scrheadings}
+
+
+% Quelltextrahmen, klein. Hier nichts ?ndern!
+\newsavebox{\inhaltkl}
+\def\rahmenkl{\sbox{\inhaltkl}\bgroup\small\renewcommand{\baselinestretch}{1}\vbox\bgroup\hsize\textwidth}
+\def\endrahmenkl{\par\vskip-\lastskip\egroup\egroup\fboxsep3mm%
+\framebox[\textwidth][l]{\usebox{\inhaltkl}}}
+
+
+% Quelltextrahmen, normale Groesse. Hier nichts ?ndern!
+\newsavebox{\inhalt}
+\def\rahmen{\sbox{\inhalt}\bgroup\renewcommand{\baselinestretch}{1}\vbox\bgroup\hsize\textwidth}
+\def\endrahmen{\par\vskip-\lastskip\egroup\egroup\fboxsep3mm%
+\framebox[\textwidth][l]{\usebox{\inhalt}}}
+
+
+\newcommand{\bs}{\boldsymbol}
+\newcommand{\compl}{\mathbb{C}}    
+\newcommand{\real}{\mathbb{R}}  
+\newcommand{\Amat}{\mathbf{A}}  
+\newcommand{\Bmat}{\mathbf{B}}  
+\newcommand{\amat}{\mathbf{a}}  
+\newcommand{\bmat}{\mathbf{b}}  
+\newcommand{\Camat}{\mathbf{C}^{[a]}}  
+\newcommand{\Cbmat}{\mathbf{C}^{[b]}}  
+\newcommand{\Xmat}{\mathbf{X}}  
+\newcommand{\Xiten}{\mathcal{X}}  
+
+
+\begin{document}
+\selectlanguage{Russian}
+\begin{singlespace}
+\input{titul.tex}
+\end{singlespace}
+\onehalfspace
+\pagenumbering{arabic} % Nummerierung der Seiten ab hier: i, ii, iii, iv...
+\pagestyle{scrheadings} % Ab hier mit Kopf- und Fusszeile
+\tableofcontents
+%\clearpage
+\newpage
+\input{intro_new.tex}
+\input{siso_new.tex}
+
+\cleardoublepage
+%\addcontentsline{toc}{chapter}{Список литературы}
+\bibliographystyle{utf8gost705u}  
+\bibliography{art1} 
+\cleardoublepage
+\end{document}
+
+%\selectlanguage{russian}

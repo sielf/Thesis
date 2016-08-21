@@ -1,0 +1,143 @@
+%\documentclass{article}
+\documentclass
+[   twoside=false,    
+    fontsize=14pt,     
+    DIV=15,           
+    BCOR=17mm,         
+    headsepline, 
+    footsepline, 
+    open=right,        
+    paper=a4,          
+    abstract=true,     
+    listof=totoc,     
+    bibliography=totoc,
+    titlepage,       
+    headinclude=true,  
+    footinclude=false, 
+    numbers=noenddot   
+]   {scrreprt}      %scrreprt   
+
+\usepackage[left=30mm, top=20mm, right=15mm, bottom=30mm]{geometry}
+\sloppy
+\usepackage{setspace}
+\onehalfspacing 
+
+
+
+%\usepackage[OT2,T2A,T2B,T1]{fontenc}
+
+\usepackage[T2B]{fontenc}
+%\usepackage[cp1251]{inputenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage{amsmath,amssymb,amsfonts}  
+\usepackage{setspace} 
+\usepackage{bm} 
+\usepackage{graphicx}  %  insert EPS  \includegraphics
+\usepackage{psfrag} 
+\usepackage{array}
+\usepackage{caption}
+\usepackage{hyperref}
+\usepackage{stfloats}
+\usepackage{textcomp}
+\usepackage{tabulary}
+\usepackage{float}
+\usepackage{epstopdf}
+\usepackage{misccorr}
+\usepackage{times}
+%\usepackage{mathptmx}
+\usepackage{lmodern}
+\usepackage[automark]{scrpage2}
+\usepackage[active]{srcltx}
+
+
+\makeatletter
+\@addtoreset{equation}{chapter}
+\@addtoreset{figure}{chapter}
+\@addtoreset{table}{chapter}
+\renewcommand\theequation{\thechapter.\@arabic\c@equation}
+\renewcommand\thefigure{\thechapter.\@arabic\c@figure}
+\renewcommand\thetable{\thechapter.\@arabic\c@table}
+\makeatother
+
+\setcounter{secnumdepth}{3} % Tiefe der Nummerierung
+\setcounter{tocdepth}{3}    % Tiefe des Inhaltsverzeichnisses
+
+
+% Seitenlayout festlegen. Hier nichts ?ndern!
+\pagestyle{scrplain}
+\ihead[]{}%\headmark}
+\ohead[]{\pagemark}
+\chead[]{}
+\ifoot[]{}
+\ofoot[]{}%\scriptsize \artderausarbeitung\ \namedesautors}
+\cfoot[]{}
+\renewcommand{\titlepagestyle}{scrheadings}
+\renewcommand{\partpagestyle}{scrheadings}
+\renewcommand{\chapterpagestyle}{scrheadings}
+\renewcommand{\indexpagestyle}{scrheadings}
+
+
+% Quelltextrahmen, klein. Hier nichts ?ndern!
+\newsavebox{\inhaltkl}
+\def\rahmenkl{\sbox{\inhaltkl}\bgroup\small\renewcommand{\baselinestretch}{1}\vbox\bgroup\hsize\textwidth}
+\def\endrahmenkl{\par\vskip-\lastskip\egroup\egroup\fboxsep3mm%
+\framebox[\textwidth][l]{\usebox{\inhaltkl}}}
+
+
+% Quelltextrahmen, normale Groesse. Hier nichts ?ndern!
+\newsavebox{\inhalt}
+\def\rahmen{\sbox{\inhalt}\bgroup\renewcommand{\baselinestretch}{1}\vbox\bgroup\hsize\textwidth}
+\def\endrahmen{\par\vskip-\lastskip\egroup\egroup\fboxsep3mm%
+\framebox[\textwidth][l]{\usebox{\inhalt}}}
+
+
+\newcommand{\bs}{\boldsymbol}
+\newcommand{\compl}{\mathbb{C}}    
+\newcommand{\real}{\mathbb{R}}  
+\newcommand{\Amat}{\mathbf{A}}  
+\newcommand{\Bmat}{\mathbf{B}}  
+\newcommand{\amat}{\mathbf{a}}  
+\newcommand{\bmat}{\mathbf{b}}  
+\newcommand{\Camat}{\mathbf{C}^{[a]}}  
+\newcommand{\Cbmat}{\mathbf{C}^{[b]}}  
+\newcommand{\Xmat}{\mathbf{X}}  
+\newcommand{\Xiten}{\mathcal{X}}  
+
+
+\begin{document}
+\selectlanguage{Russian}
+\begin{singlespace}
+\input{titul.tex}
+\end{singlespace}
+\onehalfspace
+\pagenumbering{arabic} % Nummerierung der Seiten ab hier: i, ii, iii, iv...
+\pagestyle{scrheadings} % Ab hier mit Kopf- und Fusszeile
+\tableofcontents
+%\clearpage
+\newpage
+\chapter{Введение}
+Педагогическая практика является важным элементом обучения студентов. Она позволяет прививать командные навыки для управления и руководства студентами при их обучении. Важным аспектом обучения являются репутационные качества преподавателя для студента. Иначе говоря студент должен считать преподавателя значимым в данной сфере лицом имеющим достаточную квалификацию и навыки значительно большие чем у студента. Кроме того студент должен считать компетенцию преподавателя достаточной для принятия от него преподаваемой информации.  При этом преподаватель при обучении студентов должен составлять модель учебного коллектива зная какой из студентов имеет характерные для такого вида коллективов роли.
+ Достаточно важным для подобного анализа групп лиц имеет знание психологии и методик педагогики. Важным явлением в преподавании является метод ведения занятия. Занятия могут проходить как практическое мероприятие, семинар, лекция и презентация. 
+Практическое мероприятие представляет собой работу с какими-либо приборами либо программирование устройств, либо работа с лабораторными стендами и отладочными платами. 	
+Семинарные занятия представляют собой доклад студентами на заранее заданную тему. При этом тренируется способности поиска, выбора, анализа информационных источников и проведение литературного обзора для статей различной направленности, в том числе статей непрофильной специальности. 	Лекция представляет собой повторение какого-либо материала преподавателем под запись студентам. При этом преподаватель полагается на машинную память студентов. Одним из важнейших факторов при ведении лекция является обратная связь со студентами. Преподаватель должен проверять понимание студентами материала и быть уверенным в глубоком понимании студентами основных тезисов лекционного материала. Недостатком данного метода является монотонность и высокие требования к мотивации студента для получения им знаний по материалу. Так же при проведении лекций преподаватель должен иметь значительный уровень компетенций и опыта. 
+\chapter{Постановка задачи}
+Для прохождения педагогической практики передо мной были поставлены задачи получить навыки руководства над группой студентов и ведения практических занятий для группы студентов.  
+Кроме того задача была поставлена с целью улучшить знания студентов первого курса «Германо-Российского института новых технологий» и подготовить их к пересдаче экзамена по дисциплине «MIMO Communications»\cite{Book10}\cite{Book11}\cite{Book16}\cite{Book66}\cite{Book2}\cite{Book20}\cite{Book25}. 
+В дальнейшем при прохождении производственной практики была поставлена задача участия студентов в олимпиадах и конкурсах по разработке и программированию встроенных систем. Так же при прохождении практики была рассмотрена возможность внедрения во встроенные устройства системы модуляции обобщенного частотного разделения каналов. А также возможности встроенных систем по реализации подобных систем и возможности их по использованию технологии программно определяемого радио.
+\chapter{Выполненные работы}
+Для выполнения первой поставленной задачи были проведены занятия по курсу «MIMO communications» с использованием практических примеров и задач разработанных в ходе подготовки к ведению занятий.  В данном случае были разработаны задания по пяти различным темам занятий: «Модель Кронекера»\cite{Book26}\cite{Book27}\cite{Book28}, «Пропускная способность системы с большим количеством приемников и передатчиков»\cite{Book29}\cite{Book30}\cite{Book31}, «Блочная диагонализация для системы с большим количеством пользователей с большим количеством приемников и передатчиков»\cite{Book32}\cite{Book33}\cite{Book34}, «Алгоритм водораздела»\cite{Book35}\cite{Book36}\cite{Book37}, «Схема модуляции Аламути»\cite{Book38}\cite{Book39}\cite{Book40}. 
+В ходе проведенных занятий студенты прошли занятия по курсу «MIMO communications» а так же получили практические навыки по решению задач и подготовке к экзаменам по данному предмету. Для этого были проведены три практических занятия под моим руководством, а так же три практических занятия под руководством Подкуркова И.А. На занятиях под моим участием студентами решались практические задачи для подготовки к экзаменам и для тренировки аналитических методов решения задач. При этом были рассмотрены начальные возможности, потенциал и мотивация студентов по получению знаний стремлению к совершенствованию 
+
+Для решения второй поставленной задачи была подана заявка на участие в конкурсе «Texas Instruments International Contest». Для этого была подана заявка от моего лица и лица двух студентов проходящих обучение на бакалавриате кафедры РИИТ. В дальнейшем были выбраны отладочные платы для получения практических навыков работы со встроенными системами. Отладочные платы были получены и в дальнейшем была начата работа со встроенными системами и обучение работе беспроводных интерфейсов в диапазоне частот 900-1000 МГц.
+\chapter{Заключение}
+В заключение можно сказать о выполнении поставленных задач, обучении студентов практическим навыкам решения задач по курсу «MIMO communication systems». При проведении занятий была замечена высокая немотивированность студентов. Большинство студентов прохладно относилось к обязанностям и чрезвычайно мало времени уделяло самоподготовке. Студенты считали, что полученных практических знаний будет достаточно и не уделяли должного внимания теоретическим знаниям. Важно отметить слабую подготовку студентов по остаточным знаниям. У студентов не было глубокого понимания материала и теоретической базы.  Выделялись два студента обладающие теоретической базой в той или иной мере, остальные значительно слабее по уровню. Студенты получили навыки подготовки в решении практических задач и теоретические знания по читаемому курсу. Кроме того студенты были мотивированы на получение дополнительных знаний самостоятельно, так как знаний полученных за 6 практических занятий недостаточно для подготовки к экзамену.
+
+\cleardoublepage
+\addcontentsline{toc}{chapter}{Список литературы}
+\bibliographystyle{utf8gost705u}  
+\bibliography{art1} 
+\cleardoublepage
+\end{document}
+
+%\selectlanguage{russian}
