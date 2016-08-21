@@ -1,0 +1,59 @@
+\documentclass[a4paper]{article}
+\usepackage[OT2,T1,T2A]{fontenc}
+\usepackage[cp1251]{inputenc}
+\usepackage[14pt]{extsizes} 
+\usepackage[russian]{babel}
+\usepackage{setspace,amsmath}
+\usepackage[left=20mm, top=15mm, right=15mm, bottom=15mm, nohead, footskip=10mm]{geometry} % настройки полей документа
+%\usepackage{mathptmx}
+%\usepackage{times}
+\begin{document} % начало документа
+ 
+% НАЧАЛО ТИТУЛЬНОГО ЛИСТА
+\begin{center}
+\hfill \break
+\large{МИНОБРНАУКИ РОССИИ1}\\
+\footnotesize{ФЕДЕРАЛЬНОЕ ГОСУДАРСТВЕННОЕ БЮДЖЕТНОЕ ОБРАЗОВАТЕЛЬНОЕ УЧРЕЖДЕНИЕ}\\ 
+\footnotesize{ВЫСШЕГО ПРОФЕССИОНАЛЬНОГО ОБРАЗОВАНИЯ}\\
+\small{\textbf{«КАЗАНСКИЙ НАЦИОНАЛЬНЫЙ ИССЛЕДОВАТЕЛЬСКИЙ НАУЧНЫЙ ТЕНХНИЧЕСКИЙ УНИВЕРСИТЕТ им. А.Н. Туполева-КАИ»}}\\
+\hfill \break
+\normalsize{Институт радиоэлектроники и телекоммуникаций}\\
+ \hfill \break
+\normalsize{Кафедра радиоэлектронных и телекоммуникационных систем}\\
+\hfill\break
+\hfill \break
+\hfill \break
+\hfill \break
+\large{Моделирование систем с обобщенным частотным разделением каналов на основе тензорной алгебры}\\
+\hfill \break
+\hfill \break
+\hfill \break
+\normalsize{Магистерская диссертация\\
+\hfill \break
+Направление  110402 Инфокоммуникационные технологии и системы связи
+\hfill \break
+Магистерская программа    Communication and signal processing}\\
+\hfill \break
+\hfill \break
+\end{center}
+ 
+\normalsize{ \hspace{28pt} Допущено к защите в ГЭК  01.08.2016} \hfill \break
+\hfill \break
+ 
+\normalsize{ 
+\begin{tabular}{cccc}
+Зав.кафедрой & \underline{\hspace{3cm}} &  д.т.н.,  проф. & Г.И. Щербаков \\\\
+Обучающийся & \underline{\hspace{3cm}} & &Б.М.Валеев \\\\
+Руководитель & \underline{\hspace{3cm}}& д.т.н., проф.&  Ю.К. Евдокимов \\\\
+\end{tabular}
+}\\
+\hfill \break
+\hfill \break
+\begin{center} Казань 2016 \end{center}
+\thispagestyle{empty} % выключаем отображение номера для этой страницы
+ 
+% КОНЕЦ ТИТУЛЬНОГО ЛИСТА
+ 
+\newpage
+ 
+\end{document}  % КОНЕЦ ДОКУМЕНТА !

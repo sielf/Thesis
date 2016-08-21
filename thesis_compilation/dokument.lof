@@ -1,0 +1,26 @@
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {1.1}{\ignorespaces \textit {Impulse response of the raised cosine filter with different roll-off factor $\alpha $}\relax }}{8}{figure.caption.28}
+\contentsline {figure}{\numberline {1.2}{\ignorespaces \textit {Frequency envelope of the raised cosine filter with different roll-off factor $\alpha $}\relax }}{9}{figure.caption.29}
+\contentsline {figure}{\numberline {1.3}{\ignorespaces \textit {Impulse response of the root-raised cosine filter with different roll-off factor $\alpha $}\relax }}{10}{figure.caption.30}
+\contentsline {figure}{\numberline {1.4}{\ignorespaces \textit {Frequency envelope of the root-raised cosine filter with different roll-off factor $\alpha $}\relax }}{11}{figure.caption.31}
+\contentsline {figure}{\numberline {1.5}{\ignorespaces \textit {Comparison between raised cosine root-raised cosine and sinc filter in the time domain}\relax }}{12}{figure.caption.33}
+\contentsline {figure}{\numberline {1.6}{\ignorespaces \textit {Comparison between raised cosine root-raised cosine and sinc filter in the frequency domain }\relax }}{13}{figure.caption.34}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.1}{\ignorespaces \textit {SER dependency from $\alpha $ roll-off factor. Zero-forced receiver}\relax }}{38}{figure.caption.163}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces \textit {SER dependency from $\alpha $ roll-off factor. Matched filter receiver}\relax }}{39}{figure.caption.164}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces \textit {SER comparison for the semi-blind and zero-forced receiver}\relax }}{41}{figure.caption.168}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces \textit {Reconstruction error for the semi-blind receiver}\relax }}{42}{figure.caption.169}
+\contentsline {figure}{\numberline {2.5}{\ignorespaces \textit {Convergence of the semi-blind receiver with respect to the iterations}\relax }}{43}{figure.caption.173}
+\contentsline {figure}{\numberline {2.6}{\ignorespaces \textit {Convergence time for the semi-blind receiver with respect to the SNR}\relax }}{44}{figure.caption.174}
+\contentsline {figure}{\numberline {2.7}{\ignorespaces \textit {Residual decrease for the semi-bind receiver with respect to the iterations}\relax }}{45}{figure.caption.175}
+\contentsline {figure}{\numberline {2.8}{\ignorespaces \textit {SER for the semi-blind receiver with different number of known symbols}\relax }}{47}{figure.caption.178}
+\contentsline {figure}{\numberline {2.9}{\ignorespaces \textit {Channel reconstruction error for the semi-blind receiver with different number of known symbols}\relax }}{48}{figure.caption.179}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces \textit {SER dependency for the semi-blind MIMO receiver and ZF receiver with known channel}\relax }}{80}{figure.caption.345}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces \textit {Reconstruction error for the sub-carrier estimation approaches}\relax }}{81}{figure.caption.346}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces \textit {SER for the semi-blind MIMO receiver with different number of known symbols}\relax }}{83}{figure.caption.350}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces \textit {Channel reconstruction error for the semi-blind MIMO receiver with different number of known symbols}\relax }}{84}{figure.caption.351}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces \textit {SER for the semi-blind MIMO receiver with different number of known symbols}\relax }}{85}{figure.caption.354}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces \textit {Channel reconstruction error for the semi-blind MIMO receiver with different number of known symbols}\relax }}{86}{figure.caption.355}
+\addvspace {10\p@ }
+\addvspace {10\p@ }

@@ -1,0 +1,49 @@
+\begin{thenomenclature} 
+
+ \nomgroup{A}
+
+\item[{GFDM}]\begingroup \markup{G}eneralized \markup{F}requency \markup{D}ivision \markup{M}ultiplexing\nomeqref {0.0}
+\nompageref{1}
+\item[{SISO}]\begingroup \markup{S}ingle \markup{I}nput \markup{S}ingle \markup{O}utput\nomeqref {0.0}
+\nompageref{1}
+\item[{MIMO}]\begingroup \markup{M}ultiple \markup{I}nput \markup{M}ultiple \markup{O}utput\nomeqref {0.0}
+\nompageref{1}
+\item[{RC}]\begingroup \markup{R}aised \markup{C}osine \nomeqref {0.0}
+\nompageref{1}
+\item[{RRC}]\begingroup \markup{R}oot \markup{R}aised \markup{C}osine\nomeqref {0.0}
+\nompageref{1}
+\item[{AWGN}]\begingroup \markup{A}dditive \markup{W}hite \markup{G}aussian \markup{N}oise\nomeqref {0.0}
+\nompageref{1}
+\item[{PARAFAC}]\begingroup \markup{Para}llel \markup{Fac}tors \nomeqref {0.0}
+\nompageref{1}
+\item[{PARATUCK2}]\begingroup \markup{Para}FAC\markup{TUCK}er2\nomeqref {0.0}
+\nompageref{1}
+\item[{OFDM}]\begingroup \markup{O}rthogonal \markup{F}requency \markup{D}ivision \markup{M}ultiplexing\nomeqref {0.0}
+\nompageref{1}
+\item[{ISTA}]\begingroup \markup{I}terative \markup{S}oft \markup{T}hresholding \markup{A}lgorithm\nomeqref {0.0}
+\nompageref{1}
+\item[{FISTA}]\begingroup \markup{F}ast \markup{I}terative \markup{S}oft \markup{T}hresholding \markup{A}lgorithm\nomeqref {0.0}
+\nompageref{1}
+\item[{ALS}]\begingroup \markup{A}lternating \markup{L}east \markup{S}quares \nomeqref {0.0}
+\nompageref{1}
+\item[{LS}]\begingroup \markup{L}east \markup{S}quares\nomeqref {0.0}
+\nompageref{1}
+\item[{ZF}]\begingroup \markup{Z}ero \markup{F}orcing \nomeqref {0.0}
+\nompageref{1}
+\item[{MF}]\begingroup \markup{M}atched \markup{F}ilter\nomeqref {0.0}
+\nompageref{1}
+\item[{SD}]\begingroup \markup{S}teepest \markup{D}escent\nomeqref {0.0}
+\nompageref{1}
+\item[{CG}]\begingroup \markup{C}onjugate  \markup{G}radient\nomeqref {0.0}
+\nompageref{1}
+\item[{EVD}]\begingroup \markup{E}igen\markup{V}alues \markup{D}ecomposition \nomeqref {0.0}
+\nompageref{1}
+\item[{SVD}]\begingroup \markup{S}ingular \markup{V}alues\markup{D}ecomposition\nomeqref {0.0}
+\nompageref{1}
+\item[{SNR}]\begingroup \markup{S}ignal to \markup{N}oise \markup{R}atio \nomeqref {0.0}
+\nompageref{1}
+\item[{QPSK}]\begingroup \markup{Q}uadrature \markup{P}hase \markup{S}hift \markup{K}eying\nomeqref {0.0}
+\nompageref{1}
+\item[{CANDECOMP}]\begingroup \markup{Can}onical \markup{Decomp}osition \nomeqref {0.0}
+\nompageref{1}
+\end{thenomenclature}

@@ -1,0 +1,144 @@
+%\documentclass{article}
+\documentclass
+[   twoside=false,    
+    fontsize=14pt,     
+    DIV=15,           
+    BCOR=17mm,         
+    headsepline, 
+    footsepline, 
+    open=right,        
+    paper=a4,          
+    abstract=true,     
+    listof=totoc,     
+    bibliography=totoc,
+    titlepage,       
+    headinclude=true,  
+    footinclude=false, 
+    numbers=noenddot   
+]   {scrreprt}      %scrreprt   
+
+\usepackage[left=30mm, top=20mm, right=15mm, bottom=30mm]{geometry}
+\sloppy
+\usepackage{setspace}
+\onehalfspacing 
+
+
+
+%\usepackage[OT2,T2A,T2B,T1]{fontenc}
+
+\usepackage[T2B]{fontenc}
+%\usepackage[cp1251]{inputenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage{amsmath,amssymb,amsfonts}  
+\usepackage{setspace} 
+\usepackage{bm} 
+\usepackage{graphicx}  %  insert EPS  \includegraphics
+\usepackage{psfrag} 
+\usepackage{array}
+\usepackage{caption}
+\usepackage{hyperref}
+\usepackage{stfloats}
+\usepackage{textcomp}
+\usepackage{tabulary}
+\usepackage{float}
+\usepackage{epstopdf}
+\usepackage{misccorr}
+\usepackage{times}
+%\usepackage{mathptmx}
+\usepackage{lmodern}
+\usepackage[automark]{scrpage2}
+\usepackage[active]{srcltx}
+
+
+\makeatletter
+\@addtoreset{equation}{chapter}
+\@addtoreset{figure}{chapter}
+\@addtoreset{table}{chapter}
+\renewcommand\theequation{\thechapter.\@arabic\c@equation}
+\renewcommand\thefigure{\thechapter.\@arabic\c@figure}
+\renewcommand\thetable{\thechapter.\@arabic\c@table}
+\makeatother
+
+\setcounter{secnumdepth}{3} % Tiefe der Nummerierung
+\setcounter{tocdepth}{3}    % Tiefe des Inhaltsverzeichnisses
+
+
+% Seitenlayout festlegen. Hier nichts ?ndern!
+\pagestyle{scrplain}
+\ihead[]{}%\headmark}
+\ohead[]{\pagemark}
+\chead[]{}
+\ifoot[]{}
+\ofoot[]{}%\scriptsize \artderausarbeitung\ \namedesautors}
+\cfoot[]{}
+\renewcommand{\titlepagestyle}{scrheadings}
+\renewcommand{\partpagestyle}{scrheadings}
+\renewcommand{\chapterpagestyle}{scrheadings}
+\renewcommand{\indexpagestyle}{scrheadings}
+
+
+% Quelltextrahmen, klein. Hier nichts ?ndern!
+\newsavebox{\inhaltkl}
+\def\rahmenkl{\sbox{\inhaltkl}\bgroup\small\renewcommand{\baselinestretch}{1}\vbox\bgroup\hsize\textwidth}
+\def\endrahmenkl{\par\vskip-\lastskip\egroup\egroup\fboxsep3mm%
+\framebox[\textwidth][l]{\usebox{\inhaltkl}}}
+
+
+% Quelltextrahmen, normale Groesse. Hier nichts ?ndern!
+\newsavebox{\inhalt}
+\def\rahmen{\sbox{\inhalt}\bgroup\renewcommand{\baselinestretch}{1}\vbox\bgroup\hsize\textwidth}
+\def\endrahmen{\par\vskip-\lastskip\egroup\egroup\fboxsep3mm%
+\framebox[\textwidth][l]{\usebox{\inhalt}}}
+
+
+\newcommand{\bs}{\boldsymbol}
+\newcommand{\compl}{\mathbb{C}}    
+\newcommand{\real}{\mathbb{R}}  
+\newcommand{\Amat}{\mathbf{A}}  
+\newcommand{\Bmat}{\mathbf{B}}  
+\newcommand{\amat}{\mathbf{a}}  
+\newcommand{\bmat}{\mathbf{b}}  
+\newcommand{\Camat}{\mathbf{C}^{[a]}}  
+\newcommand{\Cbmat}{\mathbf{C}^{[b]}}  
+\newcommand{\Xmat}{\mathbf{X}}  
+\newcommand{\Xiten}{\mathcal{X}}  
+
+
+\begin{document}
+\selectlanguage{Russian}
+\begin{singlespace}
+%\input{tit1.tex}
+\input{titul.tex}
+\end{singlespace}
+\newpage
+\chapter*{Аннотация}
+Системы сотовой связи 5G как ожидается будут поддерживать множество сценариев работы таких как Интернет прикосновений, M2M соединения, Интернет вещей и обеспечивать сокрости передачи порядка Гигабит в секунду по беспроводным протоколам связи. Физический уровень должен выполнять соответствующие требования к дизайну: высокая спектральная эффективность, поддерживать системы с множеством антенн, минимизировать внеполосные излучения и уменьшить потребление энергии.\\
+Обобщенное частотное разделение каналов является новым основанным на ОЧРК подходом обеспечиващим все требования указанные выше. ОбЧРК использует перекрытие по времени между символами, что увеличивает плотность расположения символов и увеличивает количество переданных данных. Более того ОбЧРК обеспечивает гибкое перекрытие по времени подстраивая переменные коэффициенты. Таким образом можно найти компромисс между количеством ошибок и внеполосным излучением.\\
+%Система может работать в режиме разделения частот деля частоты с различными легальными системами.
+%Схема $GFDM$ модуляции может быть представлена ​​с использованием тензорной алгебры, более конкретно модели тензор $PARATUCK2$. Модель позволит нам ввести временной и частотной области отдельно для символов в одном блоке передачи. Модель $PARATUCK2$ может быть использована для того, чтобы найти более эффективные способы для оценки неизвестных символов или оценки канала.\\
+\chapter*{Abstract}
+5G cellular communication systems are expected to support many application scenarios such as tactile Internet, machine-type communications (MTC) and  Internet of things (IoT) providing data rates of few Gigabits/ s wireless connectivity.  The physical layer should fulfil the following design criteria, higher spectral efficiency - efficiently supports MIMO, Lower out-of-band (OOB) emissions, lower implementation complexity and Lower power consumptions.\\
+Generalized frequency division modulation is new OFDM based approach that fulfills the 5G requirements at the cost of complexity.  GFDM uses time overlapping for the symbols in one transmission block to increase density of the transmitted data. Moreover, GFDM offers flexible overlapping of the subcarriers. The frequency overlap slightly increases the Symbol Error rate (SER) of the system, but decrease out-of-band radiation. The system also can adjust the number of used subcarriers in case if frequency sharing is used. The system can work in the same frequency bands as their legal users and doesn't interfere with them. The transmission system is more complex because it introduce the  inter symbol interference.\\
+The GFDM modulation scheme can be represented using tensor algebra, more specifically the PARATUCK 2 (Parallel factors Tucker2) tensor model. Model allow us to introduce the time and frequency domain separately for the symbols in one transmission block. The PARATUCK2 model can be exploited in order to find more efficient ways to estimate the unknown symbols or channel estimation.
+
+\onehalfspace
+\pagenumbering{arabic} % Nummerierung der Seiten ab hier: i, ii, iii, iv...
+\pagestyle{scrheadings} % Ab hier mit Kopf- und Fusszeile
+\tableofcontents
+%\clearpage
+\newpage
+\input{intro_new.tex}
+\input{siso_new.tex}
+\input{mimo_new.tex}
+\input{conc_new.tex}
+%\input{Intro.tex}
+%\input{MIMO.tex}
+\cleardoublepage
+\addcontentsline{toc}{chapter}{Список литературы}
+\bibliographystyle{utf8gost705u}  
+\bibliography{art1} 
+\cleardoublepage
+\end{document}
+
+%\selectlanguage{russian}

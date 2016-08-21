@@ -1,0 +1,36 @@
+\BOOKMARK [0][-]{chapter.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.2}{Tensor based processing}{chapter.1}% 2
+\BOOKMARK [2][-]{subsection.3}{PARATUCK2 model}{section.2}% 3
+\BOOKMARK [1][-]{section.4}{Generalized frequency division modulation systems}{chapter.1}% 4
+\BOOKMARK [2][-]{subsection.5}{Time filter construction principles}{section.4}% 5
+\BOOKMARK [0][-]{chapter.6}{Generalized frequency division multiplexing single input single output}{}% 6
+\BOOKMARK [1][-]{section.7}{System model}{chapter.6}% 7
+\BOOKMARK [1][-]{section.8}{Additive white Gaussian noise channel}{chapter.6}% 8
+\BOOKMARK [2][-]{subsection.9}{Zero forcing solution}{section.8}% 9
+\BOOKMARK [2][-]{subsection.10}{Matched filter solution}{section.8}% 10
+\BOOKMARK [1][-]{section.11}{Selection coefficients search}{chapter.6}% 11
+\BOOKMARK [2][-]{subsection.12}{Semi-blind receiver}{section.11}% 12
+\BOOKMARK [2][-]{subsection.13}{Approximated semi-blind receiver}{section.11}% 13
+\BOOKMARK [2][-]{subsection.14}{Joint semi-blind receiver}{section.11}% 14
+\BOOKMARK [1][-]{section.15}{Frequency selective channel estimation}{chapter.6}% 15
+\BOOKMARK [2][-]{subsection.16}{Approximated channel estimation}{section.15}% 16
+\BOOKMARK [2][-]{subsection.17}{Channel estimation}{section.15}% 17
+\BOOKMARK [1][-]{section.18}{Simulation results}{chapter.6}% 18
+\BOOKMARK [1][-]{section.19}{Conclusion}{chapter.6}% 19
+\BOOKMARK [0][-]{chapter.20}{Generalized frequency division multiplexing multiple input multiple output}{}% 20
+\BOOKMARK [1][-]{section.21}{System model}{chapter.20}% 21
+\BOOKMARK [1][-]{section.22}{Sub-carrier coefficient update approach}{chapter.20}% 22
+\BOOKMARK [2][-]{subsection.23}{Approximated approach}{section.22}% 23
+\BOOKMARK [2][-]{subsection.24}{MIMO model based approach}{section.22}% 24
+\BOOKMARK [2][-]{subsection.25}{Decomposition based approach}{section.22}% 25
+\BOOKMARK [3][-]{subsubsection.26}{rank analysis}{subsection.25}% 26
+\BOOKMARK [1][-]{section.27}{Semi-blind receiver for MIMO}{chapter.20}% 27
+\BOOKMARK [1][-]{section.28}{The system model for frequency selective channel}{chapter.20}% 28
+\BOOKMARK [2][-]{subsubsection.29}{Least squares solution for the channel estimation}{section.28}% 29
+\BOOKMARK [2][-]{subsection.30}{The semi-blind receiver for channel estimation}{section.28}% 30
+\BOOKMARK [2][-]{subsection.31}{Simplified semi-blind receiver}{section.28}% 31
+\BOOKMARK [2][-]{subsection.32}{Semi-blind receiver with interference cancellation}{section.28}% 32
+\BOOKMARK [3][-]{subsubsection.33}{Regularization for the semi-blind receiver}{subsection.32}% 33
+\BOOKMARK [2][-]{subsection.34}{Newton based semi-blind receiver}{section.28}% 34
+\BOOKMARK [1][-]{section.35}{Simulation results}{chapter.20}% 35
+\BOOKMARK [1][-]{section.36}{Conclusion}{chapter.20}% 36

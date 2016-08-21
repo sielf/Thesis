@@ -1,0 +1,192 @@
+%% ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%% Hauptdatei, Wurzel des Dokuments
+%% ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%
+%  Gerüst:
+%  * Version 0.13
+%  * M.Sc. Silvia Krug, silvia.krug@tu-ilmenau.de
+%  * Fachgebiet Kommunikationsnetze, TU Ilmenau
+%
+%  Für Hauptseminare, Studienarbeiten, Diplomarbeiten
+%
+%  Autor           : Max Mustermann
+%  Letzte Änderung : 04.12.2015
+%
+
+% Headerfeld, Typ des Dokumentes, einzubindende Packages.
+% Hier bei Bedarf Änderungen vornehmen.
+\documentclass
+[   twoside=false,     % Einseitiger oder zweiseitiger Druck?
+    fontsize=12pt,     % Bezug: 12-Punkt Schriftgröße
+    DIV=15,            % Randaufteilung, siehe Dokumentation "KOMA"-Script
+    BCOR=17mm,         % Bindekorrektur: Innen 17mm Platz lassen. Copyshop-getestet.
+%    headsepline,
+    headsepline,  % Unter Kopfzeile Trennlinie (aus: headnosepline)
+    footsepline,  % Über Fußzeile Trennlinie (aus: footnosepline)
+    open=right,        % Neue Kapitel im zweiseitigen Druck rechts beginnen lassen
+    paper=a4,          % Seitenformat A4
+    abstract=true,     % Abstract einbinden
+    listof=totoc,      % Div. Verzeichnisse ins Inhaltsverzeichnis aufnehmen
+    bibliography=totoc,% Literaturverzeichnis ins Inhaltsverzeichnis aufnehmen
+    titlepage,         % Titelseite aktivieren
+    headinclude=true,  % Seiten-Head in die Satzspiegelberechnung mit einbeziehen
+    footinclude=false, % Seiten-Foot nicht in die Satzspiegelberechnung mit einbeziehen
+    numbers=noenddot   % Gliederungsnummern ohne abschließenden Punkt darstellen
+]   {scrreprt}         % Dokumentenstil: "Report" aus dem KOMA-Skript-Paket
+
+\usepackage[active]{srcltx}
+\usepackage{ifthen}
+\usepackage[utf8]{inputenc}  
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[T1]{url}
+\usepackage[final]{graphicx}
+\usepackage[automark]{scrpage2}
+\usepackage{setspace}
+\usepackage[plainpages=false,pdfpagelabels,hypertexnames=false]{hyperref}
+\usepackage{amsmath,amssymb,amsfonts}  
+\usepackage{bm}                        
+\usepackage{graphicx}                   
+\usepackage{psfrag}                   
+\usepackage{array}
+\usepackage{caption}
+\usepackage{hyperref}
+\usepackage{stfloats}
+\usepackage{textcomp}
+\usepackage{tabulary}
+\usepackage{amsfonts}
+\usepackage{epstopdf}
+\usepackage{float}
+\usepackage[ngerman,english]{babel}
+%\usepackage{fancyhdr}  
+%
+%\fancypagestyle{mine}{%
+%\fancyhf{} % clear all header and footer fields
+%\fancyhead[L]{\textsf{\leftmark}}%
+%\fancyhead[R]{\thepage}%
+%%\fancyfoot[L]{\scriptsize \invnummer}%
+%\fancyfoot[R]{\scriptsize Masterarbeit Soheyl Gherekhloo}
+%\renewcommand{\headrulewidth}{0.4pt} %
+%\renewcommand{\footrulewidth}{0.4pt} %
+%} \pagestyle{mine}
+%\renewcommand{\chaptermark}[1]{%
+%\markboth{\thechapter.\ #1}{}}
+
+\newcommand{\bs}{\boldsymbol}
+\newcommand{\compl}{\mathbb{C}}      
+\newcommand{\real}{\mathbb{R}} 
+\newcommand{\artderausarbeitung}{Masterarbeit}
+\newcommand{\namedesautors}{Bulat Valeev}
+\newcommand{\themaderarbeit}{Tensor based system modelling for GFDM}
+
+
+% Tiefe der Kapitelnummerierung beeinflussen
+\setcounter{secnumdepth}{3} % Tiefe der Nummerierung
+\setcounter{tocdepth}{3}    % Tiefe des Inhaltsverzeichnisses
+% PDF Metadaten definieren
+\hypersetup{
+   pdftitle={\themaderarbeit},
+   pdfsubject={\artderausarbeitung},
+   pdfauthor={\namedesautors},
+   pdfkeywords={\artderausarbeitung; TU-Ilmenau; }}
+
+
+\usepackage[intoc]{nomencl}
+  \AtBeginDocument{\setlength{\nomlabelwidth}{.25\columnwidth}}
+  \let\abbrev\nomenclature
+  \renewcommand{\nomname}{Acronyms}
+  \renewcommand{\nomlabel}[1]{#1 \dotfill}
+  \setlength{\nomitemsep}{-\parsep}
+  \makenomenclature
+
+\usepackage[normalem]{ulem}
+  \newcommand{\markup}[1]{\textbf{#1}}
+
+% Seitenlayout festlegen. Hier nichts ändern!
+\pagestyle{scrplain}
+\ihead[]{\headmark}
+\ohead[]{\pagemark}
+\chead[]{}
+\ifoot[]{}
+\ofoot[]{\scriptsize \artderausarbeitung\ \namedesautors}
+\cfoot[]{}
+\renewcommand{\titlepagestyle}{scrheadings}
+\renewcommand{\partpagestyle}{scrheadings}
+\renewcommand{\chapterpagestyle}{scrheadings}
+\renewcommand{\indexpagestyle}{scrheadings}
+
+% Abschnittsweise Nummerierung anstatt fortlaufend. Hier nichts ändern!
+\makeatletter
+\@addtoreset{equation}{chapter}
+\@addtoreset{figure}{chapter}
+\@addtoreset{table}{chapter}
+\renewcommand\theequation{\thechapter.\@arabic\c@equation}
+\renewcommand\thefigure{\thechapter.\@arabic\c@figure}
+\renewcommand\thetable{\thechapter.\@arabic\c@table}
+\makeatother
+
+% Quelltextrahmen, klein. Hier nichts ändern!
+\newsavebox{\inhaltkl}
+\def\rahmenkl{\sbox{\inhaltkl}\bgroup\small\renewcommand{\baselinestretch}{1}\vbox\bgroup\hsize\textwidth}
+\def\endrahmenkl{\par\vskip-\lastskip\egroup\egroup\fboxsep3mm%
+\framebox[\textwidth][l]{\usebox{\inhaltkl}}}
+
+% Quelltextrahmen, normale Groesse. Hier nichts ändern!
+\newsavebox{\inhalt}
+\def\rahmen{\sbox{\inhalt}\bgroup\renewcommand{\baselinestretch}{1}\vbox\bgroup\hsize\textwidth}
+\def\endrahmen{\par\vskip-\lastskip\egroup\egroup\fboxsep3mm%
+\framebox[\textwidth][l]{\usebox{\inhalt}}}
+
+
+% Sonstige Befehlsdefinitionen hier ablegen.
+\newcommand{\entspricht}{\stackrel{\wedge}{=}}
+
+% Tabellenspaltendefinitionen mit fester Breite --> somit Zeilenumbruch innerhalb einer Zelle möglich
+% aus http://www.torsten-schuetze.de/tex/tabsatz-2004.pdf
+\usepackage{array, booktabs}
+\newcolumntype{f}{>{$}l<{$}}
+\newcolumntype{n}{>{\raggedright}l}
+\newcolumntype{N}{>{\scriptsize}l}
+\newcolumntype{v}[1]{>{\raggedright\hspace{0pt}}m{#1}}
+\newcolumntype{V}[1]{>{\scriptsize\raggedright\hspace{0pt}}m{#1}}
+\newcolumntype{Z}[1]{>{\raggedright\centering}m{#1}}
+\newcolumntype{k}[1]{>{\raggedright}p{#1}}
+% ergibt Tabllenspalte fester Breite, linksbündig
+% Umbruch innerhalb der Zelle mit \\, neue Tabellezeile mit \tabularnewline
+% \addlinespace für Gruppentrennung (aus \texttt{booktabs.sty})
+
+
+\begin{document}
+
+%\input{univ_titel.tex}
+\onehalfspacing
+\input{titelblatt.tex}
+\input{vorwort.tex}
+\input{abstract.tex}
+
+\cleardoublepage % Seitenumbruch erzwingen vor Änderung des Nummerierungsstils
+\pagenumbering{roman} % Nummerierung der Seiten ab hier: i, ii, iii, iv...
+\pagestyle{scrheadings} % Ab hier mit Kopf- und Fusszeile
+\tableofcontents
+
+% Die einzelnen Kapitel
+\cleardoublepage % Seitenumbruch erzwingen vor Änderung des Nummerierungsstils
+\pagenumbering{arabic} % Nummerierung der Seiten ab hier: 1, 2, 3, 4...
+
+\chapter{Introduction}
+\input{Introduction.tex}
+\input{SISO.tex}
+\input{MIMO.tex}
+\input{conclusion.tex}
+\input{acronyms.tex}
+\input{literature.tex}
+\input{pictures.tex}
+\input{tables.tex}
+\input{thesen.tex}
+\input{abschlusserklaerung.tex}
+
+
+\appendix
+
+\end{document}
+

@@ -1,0 +1,265 @@
+\begin{thebibliography}{10}
+\def\selectlanguageifdefined#1{
+\expandafter\ifx\csname date#1\endcsname\relax
+\else\language\csname l@#1\endcsname\fi}
+\ifx\undefined\url\def\url#1{{\small #1}}\else\fi
+\ifx\undefined\BibUrl\def\BibUrl#1{\url{#1}}\else\fi
+\ifx\undefined\BibAnnote\long\def\BibAnnote#1{(#1)}\else\fi
+\ifx\undefined\BibEmph\def\BibEmph#1{\emph{#1}}\else\fi
+
+\bibitem{Book32}
+\selectlanguageifdefined{russian}
+Cox~Donald. Fundamental limitations on increasing data rate in wireless
+  systems.~// IEEE Communacation magazine.
+\newblock 2008.
+
+\bibitem{Book34}
+\selectlanguageifdefined{russian}
+Matthe~M., Michailow~N., I.Gaspar. GFDM for 5G cellular networks~// IEEE
+  transactions on commenications vol 62.
+\newblock 2014.
+
+\bibitem{Book35}
+\selectlanguageifdefined{russian}
+Sklar~Bernard. Digital Communcations Fundamental and applications~// Prentice
+  Hall 2 edition.
+\newblock 2001.
+
+\bibitem{Book33}
+\selectlanguageifdefined{russian}
+Matthe~M., Michailow~N., Fettweis~G. Influense of Pulse shaping on bit-error
+  rate Performance and out of band radiation of GFDM~// ICC 14 WS 5G.
+\newblock 2014.
+
+\bibitem{Book6}
+\selectlanguageifdefined{russian}
+Kolda~Tamara~G., Bader~Brett~W. Tensor Decompositions and Applications~// SIAM
+  Review.
+\newblock 2009.
+\newblock Т.~51, {№}~3.
+\newblock {С.}~455--500.
+
+\bibitem{Book7}
+\selectlanguageifdefined{russian}
+B.Valeev~Yu.~Evdokimov. Model of correlation part in global navigation
+  receiver~// KNRTU-KAI, PT\&TT.
+\newblock 2014.
+
+\bibitem{Book16}
+\selectlanguageifdefined{russian}
+de~Lathauwer~Lieven, de~Moor~Bart, Vanderwalle~Joos. A multilinear singular
+  value decomposition~// SIAM J. MATRIX ANAL. APPL. Vol. 21, No. 4, pp.
+  1253–1278.
+\newblock 2000.
+
+\bibitem{Book19}
+\selectlanguageifdefined{russian}
+Andersson~C.~A., Bro~R. The N-way Toolbox for MATLAB~// Chemometrics \&
+  Intelligent Laboratory Systems. 52 (1):1-4, 2000.
+\newblock 2000.
+\newblock http://www.models.life.ku.dk/source/nwaytoolbox/.
+
+\bibitem{Book5}
+\selectlanguageifdefined{russian}
+Garin~Lionel~J. The "Shaping Correlator", Novel Multipath Mitigation Technique
+  Applicable to GALILEO BOC(1,1) Modulation Waveforms in High Volume Markets~//
+  The European Navigation Conference GNSS 2005.
+\newblock 2005.
+
+\bibitem{Book66}
+\selectlanguageifdefined{russian}
+Fletcher~R. Practical methods of optimization~// Wiley.
+\newblock 2000.
+
+\bibitem{Book12}
+\selectlanguageifdefined{russian}
+Bro~R., Sidiropoulos~N., Giannakis~G. PARAFAC: Tutorial and applications~//
+  Chemometrics Group, Food Technology, Royal Veterinary \& Agricultural
+  University.
+\newblock 1997.
+
+\bibitem{Book26}
+\selectlanguageifdefined{russian}
+de~Almeida~André L.~F., Favier~Gérard, Ximenes~Leandro~R.
+  Space-Time-Frequency (STF) MIMO Communication Systems With Blind Receiver
+  Based on a Generalized PARATUCK2 Model~// IEEE TRANSACTIONS ON SIGNAL
+  PROCESSING, VOL. 61, NO. 8,.
+\newblock APR, 2013.
+
+\bibitem{Book17}
+\selectlanguageifdefined{russian}
+R~Bro, L.~Kiers H.~A. A new efficient method for determining the number of
+  components in parafac models~// J. Chemometrics, 17: 274–286 doi: 10.1002/
+  cem.801.
+\newblock 2003.
+
+\bibitem{Book23}
+\selectlanguageifdefined{russian}
+Vilaipornsawai~Usa, Jia~Ming. Scattered-pilot channel estimation for GFDM~//
+  2014 IEEE Wireless Communications and Networking Conference (WCNC).
+\newblock 2014.
+
+\bibitem{Book44}
+\selectlanguageifdefined{russian}
+andDorin Panaitopolb~Rohit~Dattaa, , Fettweis~Gerhard. Cyclostationary
+  Detection of 5G GFDM Waveform in Cognitive Radio Transmission~// IEEE
+  TRANSACTIONS ON COMMUNICATIONS.
+\newblock 2013.
+
+\bibitem{Book51}
+\selectlanguageifdefined{russian}
+Paulraj~Arogyaswami, ana Dhananjay~Gore~Rohit~Nabar. Introduction to Space-Time
+  Wireless Communications~// Cambridge Univercity Press.
+\newblock 2006.
+
+\bibitem{Book55}
+\selectlanguageifdefined{russian}
+Yang~Hongli, He~Guoping. Some properties of matrix product and its applications
+  in nonnegative tensor decomposition~// Journal of Information and Computing
+  Science.
+\newblock 2008.
+
+\bibitem{Book49}
+\selectlanguageifdefined{russian}
+OFDM: Principles and Challenges~/ Nicola~Marchetti, Muhammad~Imadur~Rahman,
+  Sanjay~Kumar {[и~др.]}.
+\newblock V. Tarokh (ed.), New Directions in Wireless Communications Research,,
+  2009.
+
+\bibitem{Book27}
+\selectlanguageifdefined{russian}
+Daubechies~I., Defriese~M., Mol.~C.~De. An iterative thresholding algorithm for
+  linear inverse problems with a sparsity constraint~// Commun. Pure Appl.
+  Math, LVII:1413 1457.
+\newblock 2004.
+
+\bibitem{Book24}
+\selectlanguageifdefined{russian}
+GFDM Interference Cancellation for Flexible Cognitive Radio PHY Design~/
+  R.~Datta, N.~Michailow, M.~Lentmaier {[и~др.]}~// Vehicular Technology
+  Conference (VTC Fall), 2012 IEEE.
+\newblock 2012.
+
+\bibitem{Book28}
+\selectlanguageifdefined{russian}
+Beck~A., Teboulle.~M. A fast iterative shrinkage-thresholding algorithm for
+  linear inverse problems~// SIAM J. Imag. Sci., 2(1):183-202.
+\newblock 2009.
+
+\bibitem{Book21}
+\selectlanguageifdefined{russian}
+Widely Linear Estimation for Space-Time-Coded GFDM in Low-Latency
+  Applications~/ Maximilian~Matthé, Luciano~Leonel~Mendes, Nicola~Michailow
+  {[и~др.]}~// IEEE Transactions on Communications.
+\newblock 2015.
+
+\bibitem{Book30}
+\selectlanguageifdefined{russian}
+Performance GFDM over frequency selective channels~/ Bruno~M.~Alves,
+  L.L.~Mendes, ~D.A.Guimaraes {[и~др.]}~// Revista Telecemunicationes vol
+  15.
+\newblock Dec 2013.
+
+\bibitem{Book11}
+\selectlanguageifdefined{russian}
+Bro~R., Sidiropoulos~N., Giannakis~G. A fast least squares algorithm for
+  separating trilinear mixtures~// ICA99- Int. Workshop on Independent
+  Component Analysis and Blind Separation.
+\newblock 1999.
+
+\bibitem{Book25}
+\selectlanguageifdefined{russian}
+Fettweis~Gerhard, Krondorf~Marco, Bittner~Steffen. GFDM - Generalized Frequency
+  Division Multiplexing~// Vehicular Technology Conference, 2009. VTC Spring
+  2009. IEEE 69th.
+\newblock 2009.
+
+\bibitem{Book65}
+\selectlanguageifdefined{russian}
+Kelley:~C.~T. Solving nonlinear equations with Newton methods~// SIAM,
+  Philadelphia.
+\newblock 2003.
+
+\bibitem{Book64}
+\selectlanguageifdefined{russian}
+Deufelhard~P. Newton methods for nonlinear problems: affne invariance and
+  adaptive algorithms~// Springer.
+\newblock 2004.
+
+\bibitem{Book62}
+\selectlanguageifdefined{russian}
+Dembo~R.S, Einsenstat~S.C., Steihaug~T. Inexact Newton methods~// SIAM J. Sci.
+  Comput., 19(1), pp. 400408,.
+\newblock 1982.
+
+\bibitem{Book63}
+\selectlanguageifdefined{russian}
+Dennis~J.E., Schanabel~JR;~R.B. Numerical methods of unconstrained optimization
+  and nonlinear equations~// Prentice-Hall,Englewood-Cli s.
+\newblock 1983.
+
+\bibitem{Book68}
+\selectlanguageifdefined{russian}
+Tihonov~A.N., Asenin~V.~Ya. Ways to solve Ill-posed tasks~// Nauka.
+\newblock 1979.
+
+\bibitem{Book58}
+\selectlanguageifdefined{russian}
+Steinwandt~Jens. Tutorial on Convex Optimization for Engineers~//
+  Communications Research Laboratory.
+\newblock 2014.
+
+\bibitem{Book61}
+\selectlanguageifdefined{russian}
+Horn~R.~A., Johnson:~C.~R. Topics in matrix analysis~// Cambridge Univ. Press.
+\newblock 2007.
+
+\bibitem{Book53}
+\selectlanguageifdefined{russian}
+LEUS~GEERT, VEEN~ALLE-JAN VAN~DER. Channel Estimation~// Delft University of
+  Technology, Dept. EEMCS, Mekelweg 4, 2628 CD Delft, The Netherlands.
+\newblock 2006.
+
+\bibitem{Book47}
+\selectlanguageifdefined{russian}
+Petersen~Kaare~Brandt, Pedersen~Michael~Syskind. The Matrix Cookbook.
+\newblock Petersen \& Pedersen,, 2012.
+
+\bibitem{Book52}
+\selectlanguageifdefined{russian}
+Robust MIMO-OFDM System for Frequency-Selective Mobile Wireless Channels~/
+  Arafat~Al-Dweik, Fatma~Kalbat, Sami~Muhaidat {[и~др.]}~// IEEE
+  TRANSACTIONS ON VEHICULAR TECHNOLOGY, VOL. 64, NO. 5,.
+\newblock MAY 2015.
+
+\bibitem{Book29}
+\selectlanguageifdefined{russian}
+Jankiraman~Mohinder. Space-Time-Codes and MIMO systems.
+\newblock Artech House universal personal communications series), 2004.
+
+\bibitem{Book48}
+\selectlanguageifdefined{russian}
+ZHOUR~ZEYAD~AL, KILICMAN~ADEM. MATRIX EQUALITIES AND INEQUALITIES INVOLVING
+  KHATRI-RAO AND TRACY-SINGH SUMS~// Journal of Inequalities in Pure and
+  Applied Mathematics.
+\newblock 2006.
+
+\bibitem{Book56}
+\selectlanguageifdefined{russian}
+Michele~Heather, Bush~Clyburn. KHATRI-RAO PRODUCTS AND CONDITIONS FOR THE
+  UNIQUENESS OF PARAFAC SOLUTIONS FOR IxJxK ARRAYS~// University of Kentucky.
+\newblock 2006.
+
+\bibitem{Book57}
+\selectlanguageifdefined{russian}
+LIU~SHUANGZHE, TRENKLER~GÄOTZ. HADAMARD, KHATRI-RAO, KRONECKER AND OTHER
+  MATRIX PRODUCTS~// INTERNATIONAL JOURNAL OF INFORMATION AND SYSTEMS SCIENCES.
+\newblock 2006.
+
+\bibitem{Book54}
+\selectlanguageifdefined{russian}
+Comon~Pierre, Jutten~Christian. Handbook of Blind Source Separation~/ {под
+  ред. }P.~Comon, C.~Jutten.
+\newblock Academic Press is an imprint of Elsevier, 2013.
+
+\end{thebibliography}

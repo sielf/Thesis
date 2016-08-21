@@ -1,0 +1,21 @@
+%% ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%% Hauptdatei, Wurzel des Dokuments
+%% ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%
+%  Gerüst:
+%  * Version 0.13
+%  * M.Sc. Silvia Krug, silvia.krug@tu-ilmenau.de
+%  * Fachgebiet Kommunikationsnetze, TU Ilmenau
+%
+%  Für Hauptseminare, Studienarbeiten, Diplomarbeiten
+%
+%  Autor           : Max Mustermann
+%  Letzte Änderung : 04.12.2015
+%
+
+\section*{Acknolegment}
+ \emph{Firstly, I would like to express my sincere gratitude to the GRIAT organization personal from the Kazan. There are a lot of them, thanks for giving me chance to start this thesis\linebreak 
+Secondly, I am very grateful to Kristina Naskovska for help and supervision. Without her advice, most of this work would not have been possible\linebreak 
+Also I am very grateful to the "RIIT" department in the University where I studied the bachelor degree. They supported a lot throughout my master research.\linebreak 
+Finally I would like to thank my family for constantly supporting me in work during the last half of year in Kazan. It is the great success for me to achieve this point in the life}
+

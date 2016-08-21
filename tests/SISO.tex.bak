@@ -1,0 +1,840 @@
+\chapter{ОбЧРК в системе с одной передающей и одной приемной антенной}
+\section{Модель системы}
+В данном разделе будет рассмотрена модель системы ОбЧРК. Была рассмотрена система передачи с воздействием канала. Канал в физическом смысле полагается как компоненты многолучевого распространения между передатчиком и приемником\cite{}. Так же канал может быть описан как свертка между переданным сигналом и некоторой импульсной характеристикой. В таком случае поступивший на вход приемника сигнал может быть описан следующим образом \eqref{siso_1}, где $y$ является вектором поступивших на вход приемника данных, $x$ это вектор переданных с выхода передатчика данных и $H$ это матрица свертки между входными данными и некоторой импульсной характеристикой. При этом переданный с выхода передатчика сигнал может быть связан с передаваемыми символами при помощи модели $PARATUCK2$ и ее двумя формами записи в векторизированной форме \eqref{siso_2}\eqref{siso_3}\cite{Book21}. 
+\begin{align}
+\mathbf{y}=\mathbf{Hx}
+\label{siso_1}
+\end{align}
+\begin{align*}
+\mathbf{y,x}\in\compl^{T\times 1}
+\mathbf{H}\in\compl^{T\times T}
+\end{align*}
+\begin{align}
+\mathbf{x}=\mathcal{X}_{[3]}=vec(\mathcal{X})=\mathbf{\Omega}_1 vec(\mathbf{S})
+\label{siso_2}
+\end{align}
+\begin{align*}
+\mathbf{\Omega}_1 \in \compl^{T\times T_s \cdot F}
+\end{align*}
+\begin{align}
+\mathbf{\Omega}_1=(\mathbf{C}^{[b]T}\diamond \mathbf{C}^{[a]T})^T \diamond (\mathbf{b^T \otimes a}) \
+\end{align}
+\begin{align}
+\mathcal{X}_{:,:,i}=\mathbf{a}\cdot diag(\mathbf{C}^{[a]}_{:,i})\cdot \mathbf{S} \cdot diag(\mathbf{C}^{[b]}_{:,i}) \cdot \mathbf{b} \label{siso_3}
+\end{align}
+Переданные данные могут быть сгенерированы при помощи модели $PARATUCK2$ третьего порядка в векторизованной форме или развертке третьего измерения. В таком случае матрица символов передаваемых при помощи системы передачи ОбЧРК будет записана как матрица основа $\mathbf{S}$ в модели $PARATUCK2$\cite{Book6}\eqref{siso_4}\eqref{siso_5}. Таким образом можно без изменений внести все символы в систему передачи. 
+
+Каждый столбец в $\Camat$ матрице соответствует определенной поднесущей частоте для модуляции. Таким образом матрица $\Camat$ конструируется как значения поднесущих частот в каждом из столбцов. Таким образом матрица $\Camat$ может быть записана следующим образом \eqref{siso_1}.
+ \begin{align}
+ c^{[a]}_{t,f}=e^{-j2\pi\cdot(t\cdot f)/T_s} \label{siso_4}
+ \end{align}
+\begin{align}
+\mathbf{C}^{[a]}=\begin{bmatrix}
+e^{-j2\pi\cdot 0}& e^{-j2\pi\cdot 0}& \cdots & e^{-j2\pi\cdot 0} \\
+e^{-j2\pi\cdot 0}& e^{-j2\pi\cdot 1/T_s}& \cdots &e^{-j2\pi\cdot F/T_s} \\
+e^{-j2\pi\cdot 0}& e^{-j2\pi\cdot 2/T_s}& \cdots &e^{-j2\pi\cdot 2F/T_s} \\
+&&\vdots \\
+e^{-j2\pi\cdot 0}& e^{-j2\pi\cdot T/T_s}& \cdots & e^{-j2\pi\cdot T\cdot F /T_s} \\
+\end{bmatrix} \label{siso_5}
+\end{align}
+Каждый столбец матрицы $\Cbmat$ определяет функцию фильтрации во временной области для заданного блока данных. Столбцы являются сдвинутыми версиями первого столбца. Сдвиг между соседними столбцами равен $T/T_s$\eqref{siso_7}. Элементы в столбце определяются по следующему выражению \eqref{siso_6}\cite{Book12}. При конструировании матрицы $\Cbmat$ задается коэффициент перекрытия $\alpha$.
+\begin{align}
+\begin{matrix}
+u(t) &=& \left\{ \begin{matrix} 
+\frac{1-\alpha +4\alpha/\pi}{\sqrt{T}}& if& t=0\\
+\frac{\alpha}{\sqrt{2T}}[(1+\frac{2}{\pi})sin(\frac{\pi}{4\alpha})+(1-\frac{2}{\pi})cos(\frac{\pi}{4\alpha})] & if &t= \pm T/4\alpha\\
+\frac{1}{\frac{t\pi}{\sqrt{T}}(1-\frac{4*\alpha t}{T})^2}(sin(\frac{\pi t (1-\alpha)}{T})+\frac{4\alpha t}{T} cos(\frac{\pi t (1+ \alpha)}{T}) ) &otherwise \\
+\end{matrix} \right.
+\end{matrix}\label{siso_6}
+\end{align}
+\begin{align}
+\mathbf{C}^{[b]}=\begin{bmatrix}
+\mathbf{u}_{0}& \mathbf{u}_{1}& \cdots &\mathbf{u}_{T_s}\\
+\end{bmatrix} \label{siso_7}
+\end{align}
+Матрица $\Bmat$ при моделировании ОбЧРК становится столбцом $\bmat$ и в физическом смысле соответствует изменению по амплитуде между символами на различных временных позициях\cite{Book34}. Поскольку мы рассматриваем линейную независимую от времени систему то все значения в столбце равны единице. Кроме того таким образом можно выразить различные взвешивающие коэффициенты позволяющие не передавать символы по определенным временным позициям\eqref{siso_8}.
+\begin{align}
+\mathbf{b}=\mathbf{1}_{T_s\times 1} \label{siso_8}
+\end{align}
+\begin{align}
+\mathbf{b}\in \real^{T_s\times 1} \label{siso_9}
+\end{align}
+Матрица $\Amat$ при моделировании GFDM становится строкой $\amat$ и в физическом смысле соответствует коэффициентам передачи для каждой поднесущей в течении одного блока передачи. В данной работе будет рассмотрена система где значения а могут быть структурированы двумя образами\eqref{siso_10}. В первом случае строка а имеет все единичные значения. Во втором случае величины в строке а могут быть распределены случайным образом между значениями $1$ и $0$. Так же при помощи строки $\amat$ может быть   аппроксимировано влияние канала. Однако точность такой аппроксимации мала.
+\begin{align}
+\mathbf{a}=\mathbf{1}_{1\times F} \label{siso_10}
+\end{align}
+\begin{align}
+\mathbf{a}\in \compl^{1\times F} \label{siso_11}
+\end{align}
+Определив указанным образом соответствующие матрицы, сигнал на выходе передатчика может быть определен при помощи одного из последующих выражений \eqref{siso_13} \eqref{siso_14}. При этом модель системы ОбЧРК может быть совпадает с тензорной моделью $PARATUCK2$.
+\begin{align}
+\mathbf{x}^T=\mathbf{a}\cdot (\mathbf{C}^{[a]T} \odot (\mathbf{S}\cdot (\mathbf{C}^{[b]}\diamond \mathbf{b}^T)^T)) \label{siso_12}
+\end{align}
+\begin{align}
+\mathbf{x}=((\mathbf{a}\diamond \mathbf{C}^{[a]})^T \cdot \mathbf{S}) \odot \mathbf{C}^{[b]} \mathbf{b}) \label{siso_13}
+\end{align}
+\begin{align}
+\mathbf{x}=((\mathbf{b}^T\diamond \mathbf{C}^{[b]})^T \cdot \mathbf{S}^T) \odot \mathbf{C}^{[a]T} \mathbf{a}^T) \label{siso_14}
+\end{align}
+\begin{align*}
+\mathbf{x} \in \compl^{T\times 1 }
+\mathbf{a} \in \compl^{1\times F}
+\mathbf{C}^{[a]} \in \compl^{T\times  F}
+\end{align*}
+\begin{align*}
+\mathbf{C}^{[b]} \in \compl^{T \times T_s}
+\mathbf{b} \in \compl^{T_s\times 1}
+\mathcal{S} \in \compl^{F\times T_s }
+\end{align*}
+\section{Канал с аддитивным белым гауссовым шумом}
+В данной секции будет рассмотрена модель системы в которой канал отсутствует, либо его влияние устранено.  В таком случае матрица $H$  из матрицы свертки преобразуется в единичную матрицу\cite{Book30}, а модель будет описана при помощи следующего выражения \eqref{siso_15}. Для подобного рода систем существует два классических решения.
+\begin{align}
+\mathbf{y}=\mathbf{\Omega}_1vec(\mathbf{S})+\mathbf{n} \label{siso_15}
+\end{align}
+\begin{align*}
+\mathbf{\Omega}_1 \in \compl^{T\times T_s \cdot F}
+\end{align*}
+\begin{align}
+\mathbf{\Omega}_1=(\mathbf{C}^{[b]T}\diamond \mathbf{C}^{[a]T})^T \diamond (\mathbf{b \otimes a})
+\end{align}
+\begin{align*}
+\mathbf{y,n}\in \compl^{1\times T}
+\mathbf{S}\in \compl^{F\times T_s}
+\end{align*}
+\begin{align*}
+\mathbf{a} \in \compl^{1\times F}
+\mathbf{C}^{[a]} \in \compl^{T\times  F}
+\mathbf{C}^{[b]} \in \compl^{T \times T_s}
+\mathbf{b} \in \compl^{T_s\times 1}
+\end{align*}
+\subsection{Приемник на основе псевдообратной матрицы}
+Первое решение заключается оптимального решения с точки зрения второй нормы\cite{Book11}.  Для начала введем матрицу $\mathbf{\Omega}_1$ которая будет выражать взаимосвязь между векторизированной матрицей символов и сигналом на выходе передатчика\eqref{siso_ls_1}. Данное выражение может быть выведено из \eqref{siso_ls_3}. Приемник может найти наилучшие значения переданных данных при помощи решения задачи оптимизации\cite{Book26}. В таком случае может быть составлена следующая функция невязки \eqref{siso_ls_4}. Поскольку используется вторая норма, решение данной задачи существует и оно единственно. В случае если векторы а и б имеют структуру со всеми единицами мы можем ими пренебречь. Тогда матрица $\Omega$ будет записана как произведение Хатри-Рао между матрицами $\Camat$ и $\Cbmat$\eqref{siso_ls_4}.
+\begin{align}
+vec(\mathbf{x})=\mathbf{\Omega}_1\cdot vec(\mathbf{\widehat{S}}) \label{siso_ls_1}
+\end{align}
+\begin{align*}
+\mathbf{\Omega}_1 \in \compl^{T\times T_s \cdot F}
+\end{align*}
+%\mathbf{\Omega}_3 \in \compl^{T\times T_s}
+%\mathbf{\Omega}_2 \in \compl^{T\times F}
+%vec(\mathbf{a}) \in \compl^{F \times 1}
+\begin{align*}
+vec(\mathbf{\widehat{S}}) \in \compl^{F \cdot T_s \times 1}
+\end{align*}
+\begin{align}
+\mathbf{\Omega}_1=(\mathbf{C}^{[b]T}\diamond \mathbf{C}^{[a]T})^T \diamond (\mathbf{b \otimes a}) \label{siso_ls_2}
+\end{align}
+\begin{align}
+\mathbf{\Omega}_1=(\mathbf{C}^{[b]T}\diamond \mathbf{C}^{[a]T})^T  \label{siso_ls_3}
+\end{align}
+
+\begin{align}
+r_1= \mathbf{y}-\mathbf{\Omega}_1 \cdot vec(\mathbf{\widehat{S}})  \label{siso_ls_4}
+\end{align}
+
+Для того чтобы найти оптимальное решение возьмем первую производную от оптимизируемой функции\eqref{siso_ls_5}\cite{Book24}. Поскольку она комплексна и не аналитична, используем  исчисление Виртингера\eqref{siso_ls_6}, для того чтобы взять производную по комплексно сопряженной от переменной. Приравняем первую производную нулю и решим задачу используя псевдообратную матрицу\eqref{siso_ls_10}\cite{Book24}.
+\begin{align}
+\min_{vec(\mathbf{\widehat{S}})} r_1^H\cdot r_1=\min_{vec(\mathbf{\widehat{S}})} \mid\mid r_1\mid\mid^2  \label{siso_ls_5}
+\end{align}
+\begin{align}
+r_1^H\cdot r_1=(vec(\mathbf{y})-\mathbf{\Omega}_1 \cdot vec(\mathbf{\widehat{S}}))^H\cdot(vec(\mathbf{y})-\mathbf{\Omega}_1 \cdot vec(\mathbf{\widehat{S}}))  \label{siso_ls_6}
+\end{align}
+\begin{align*}
+r_1^H\cdot r_1=\mid\mid vec(\mathbf{y})\mid\mid^2 + vec(\mathbf{\widehat{S}})^H\mathbf{\Omega}_1^H \mathbf{\Omega}_1 vec(\mathbf{\widehat{S}}) 
+\end{align*}
+\begin{align}
+-vec(\mathbf{y})^H \mathbf{\Omega}_1 vec(\mathbf{\widehat{S}})- vec(\mathbf{\widehat{S}})^H\mathbf{\Omega}_1^Hvec(\mathbf{y}) \label{siso_ls_7}
+\end{align}
+\begin{align}
+\frac{\delta r_1^H\cdot r_1}{\delta vec(\mathbf{\widehat{S}}^*)} = \mathbf{\Omega}_1^H \mathbf{\Omega}_1 vec(\mathbf{\widehat{S}}) -\mathbf{\Omega}_1^Hvec(\mathbf{y})=0  \label{siso_ls_8}
+\end{align}
+\begin{align}
+\mathbf{\Omega}_1^H \mathbf{\Omega}_1 vec(\mathbf{\widehat{S}})=\mathbf{\Omega}_1^Hvec(\mathbf{y}) \label{siso_ls_9}
+\end{align}
+\begin{align}
+vec(\mathbf{\widehat{S}})_{opt}= (\mathbf{\Omega}_1^H \mathbf{\Omega}_1)^{-1}\mathbf{\Omega}_1^Hvec(\mathbf{y})  \label{siso_ls_10}
+\end{align}
+\subsection{Приемник на основе согласованного фильтра}
+Существует другое решение задачи обеспечивающее более стабильное решение. Псевдообратная матрица имеет значительный недостаток в случае если матрица для которой осуществляется инверсия имеет плохое число обусловленности\cite{Book25}\eqref{siso_mf_1}. В таком случае если в принятых данных присутствует белый гауссов шум, его компоненты будут увеличены по мощности, что приведет к уменьшение соотношения $SNR$. Это можно легко увидеть используя разложение матрицы на собственные значения\eqref{siso_mf_2}\cite{Book25}. В таком случае обратная матрица к исходной будет записана следующим образом \eqref{siso_mf_4}. Как видно из выражения \eqref{siso_mf_4} при умножении вектора шума на матрицу обратную к $\mathbf{\Omega}_1$ происходит умножение собственных значений шума на  величины обратные к собственным значениям матрицы $\mathbf{\Omega}_1$\eqref{siso_mf_5}\cite{Book24}. Таким образом значения имеющие маленькую величину в обратной матрице обеспечат увеличение компонент шума\cite{}. Для того чтобы избежать подобного влияния можно произвести умножение на эрмитово сопряженную матрицу с исходной. В таком случае соотношение $SNR$ останется неизменным\eqref{siso_mf_6}. 
+\begin{align}
+\mathbf{\Omega}_1=\mathbf{U\Sigma V^H} \label{siso_mf_1}
+\end{align}
+\begin{align}
+\mathbf{\Omega}_1^{-1}=\mathbf{V\Sigma^{-1} U^H} \label{siso_mf_2}
+\end{align}
+\begin{align}
+\mathbf{n}=\mathbf{U I\delta^2 V^H} \label{siso_mf_3}
+\end{align}
+\begin{align}
+E(\mathbf{\Omega}_1^{-1}\mathbf{n})=\mathbf{V(\Sigma^{-1}\cdot I\delta^2) V^H} \label{siso_mf_4}
+\end{align}
+\begin{align}
+\mathbf{\Omega}_1^{H}=\mathbf{V\Sigma U^H} \label{siso_mf_5}
+\end{align}
+\begin{align}
+E(\mathbf{\Omega}_1^{H}\mathbf{n})=\mathbf{V(\Sigma\cdot I\delta^2) V^H} \label{siso_mf_6}
+\end{align}
+
+\section{Поиск коэффициентов передачи поднесущих}
+Введенные выше коэффициенты $\mathbf{a}$ используются для выбора рабочих поднесущих в системе. Изменение значений вектора $\mathbf{a}$ может быть использовано для уменьшения интерференции с другими системами работающими в том же диапазоне частот, что и система ОбЧРК\cite{Book25}.  Таким образом значение вектора $\mathbf{a}$ может быть неизвестным для приемника. Информация о коэффициенте передачи поднесущей должна быть дополнительным образом найдена на приемнике. Рассмотренная модель может быть описана при помощи модели $PARATUCK2$ третьего порядка\eqref{siso_s_1}.
+\begin{align}
+\mathbf{y}=\mathbf{\Omega}_1vec(\mathbf{S})+\mathbf{n} \label{siso_s_1}
+\end{align}
+ Тогда вектор $\mathbf{a}$ описывает коэффициент передачи каждой из поднесущей. Выражение \eqref{siso_s_2} может быть сформулировано относительно вектора $\mathbf{a}$ выписанного в правую часть. Таким образом можно записать уравнение невязки для искомого вектора $\mathbf{a}$\eqref{siso_s_3}. 
+ \begin{align}
+\mathbf{\Omega}_2=((\mathbf{C}^{[b]}\diamond \mathbf{b}^T)^T\cdot S^T) \odot \mathbf{C}^{[a]}   \label{siso_ls_2}
+\end{align}
+\begin{align}
+r_2= \mathbf{y}-\mathbf{\Omega}_2 \cdot vec(\mathbf{a})  \label{siso_ls_4}
+\end{align}
+
+Приемник может найти как неизвестные величины вектора $\mathbf{a}$ так и переданные символы, но не в полном объеме. Поскольку в принятом на вход приемника блоке данных всего $T_s\cdot F$ величин, в то время как количество переменных равно $(T_s+1)\cdot F$ то задача является неопределенной и необходимо уменьшить количество неизвестных для решения задачи. Одним из возможных решений является определить для приемника первый символ на каждой из поднесущих, тогда количество неизвестных будет равно количество принятых на входи приемника данных и задача будет иметь как минимум одно решение. При помощи известных символов приемник сможет найти коэффициенты передачи поднесущих, после чего восстановит значения неизвестных для него символов\eqref{siso_sm_1}. Тогда для нахождения неизвестных величин должна быть сформулирована оптимизационная задача для приемника в ходе которой он сможет найти все неизвестные. Неизвестными переменными являются матрица символов $\mathbf{S}$ и вектор коэффициентов поднесущих $\mathbf{a}$. Известный символы добавлены в оптимизируемую функцию в качестве ограничения. Данный подход увеличивает вычислительную сложность задачи, однако значительно упрощает ее решение. Подобную задачу можно решить путем множителей Лагранжа. Задача была решена добавлением второй нормы от ограничения в функцию минимизации. Таким образом задача была упрощена с аналитической точки зрения однако так же усложнения с точки зрения вычислительной сложности. Кроме того было использовано два подхода по рассмотрению связи между невязками $r_1$ и $r_2$. Мы рассматривали как равенство функций $r_1$ и $r_2$ в той же самой точке, как и отсутствие связи между ними. В случае если связь отсутствует, производная по $\mathbf{S}$ и $\mathbf{a}$ равна нулю. В случае если связь присутствует производная по $\mathbf{S}$ и $\mathbf{a}$  не равна нулю.Далее будут рассмотрены оба подхода к решению оптимизационной задачи.
+\subsection{Приближенный полу-слепой приемник}
+Описанный ниже способ решения подразумевает отсутствие связи между $r_1$ и $r_2$. Постановка задачи записана в выражении \eqref{siso_sm_2}. Происходит минимизация функции с предположением что две оптимизируемые функции не зависят друг от друга.
+\begin{align*}
+\mathbf{r}_1= vec(\mathbf{y})-\mathbf{\Omega}_1 \cdot vec(\mathbf{\widehat{S}})
+\end{align*}
+ Функция невязки $r_1$ соответствует оптимизируемой функции относительно символов.  Матрица $\mathbf{\Omega}_1$ была определена ранее.
+Функция невязки $r_2$ соответствует оптимизируемой функции относительно коэффициентов поднесущих. Матрица $\mathbf{\Omega}_2$ была определена ранее и соответствует переданным данным с выраженными из матрицы коэффициентами поднесущих.
+ \begin{align*}
+\mathbf{r}_2=vec(\mathbf{y})-\mathbf{\Omega}_2 \cdot vec(\mathbf{\widehat{s}})
+\end{align*}
+Функция невязки соответствует поставленному для алгоритма ограничению. В качестве матрицы выбора использована матрица $\mathbf{S}_{sel}$. В матрице $\mathbf{S}_{sel}$ присутствуют элементы только на главной диагонали и только в тех строках для которых переданный символ известен. Так же матрицу можно получить другим способом при помощи выражения.
+
+ Вектор $\mathbf{q}$ является вектором где присутствуют известные символы, при этом от имеет ту же размерность что и вектор символов и на неизвестных позициях элементы равны нулю.
+ \begin{align}
+\mathbf{r}_3=\mathbf{q} -\mathbf{S}_{sel} vec(\mathbf{\widehat{S}}); \label{siso_sm_1}
+\end{align}
+\begin{align*}
+\mathbf{S}_{sel}=diag(\mathbf{q})^{-1}diag(\mathbf{q})
+\end{align*}
+\begin{align*}
+\mathbf{q}\in \compl^{T_s \cdot F\times 1}
+\mathbf{S}_{sel}\in \compl^{T_s \cdot F\times T_s \cdot F} 
+\end{align*}
+\begin{align*}
+\mathbf{r}_1 \in \compl^{T_s \cdot F \times 1}
+\mathbf{r}_2 \in \compl^{F \times 1}
+\mathbf{r}_3 \in \compl^{T_s \cdot F \times 1}
+\end{align*}
+\begin{align}
+\min_{vec(\mathbf{\widehat{S}})} r_1^Hr_1 \label{siso_sm_2}
+\end{align}
+\begin{align}
+\min_{vec(\mathbf{a})} r_2^Hr_2 \label{siso_sm_3}
+\end{align}
+\begin{align}
+\min_{vec(\mathbf{\widehat{S}})} r_3^Hr_3 \label{siso_sm_4}
+\end{align}
+\begin{align}
+\begin{bmatrix}
+\frac{\delta \mathbf{r}_1^H \mathbf{r}_1}{\delta vec(\mathbf{\widehat{S}})^*}\\
+\frac{\delta \mathbf{r}_2^H \mathbf{r}_2}{\delta vec(\mathbf{\widehat{a}})^*}\\
+\frac{\delta \mathbf{r}_3^H \mathbf{r}_3}{\delta vec(\mathbf{\widehat{S}})^*}\\
+\end{bmatrix}=
+\begin{bmatrix}
+0\\
+0\\
+0\\
+\end{bmatrix} \label{siso_sm_5}
+\end{align}
+\begin{align}
+\begin{bmatrix}
+\frac{\delta \mathbf{r}_1^H \mathbf{r}_1}{\delta vec(\mathbf{\widehat{S}})^*}\\
+\frac{\delta \mathbf{r}_2^H \mathbf{r}_2}{\delta vec(\mathbf{\widehat{S}})^*}\\
+\frac{\delta \mathbf{r}_3^H \mathbf{r}_3}{\delta vec(\mathbf{\widehat{S}})^*}\\
+\end{bmatrix}=
+\begin{bmatrix}
+-\mathbf{\Omega}_1^H \mathbf{r}_1\\
+-\mathbf{\Omega}_2^H \mathbf{r}_2\\
+-\mathbf{S}_{sel}^H \mathbf{r}_3\\
+\end{bmatrix} \label{siso_sm_6}
+\end{align}
+\begin{align}
+\frac{\delta r_1^Hr_1}{\delta vec(\mathbf{\widehat{S}}^*)} = \mathbf{\Omega}_1^H \mathbf{\Omega}_1 vec(\mathbf{\widehat{S}}) -\mathbf{\Omega}_1^Hvec(\mathbf{y})=0 \label{siso_sm_7}
+\end{align}
+\begin{align}
+\frac{\delta r_2^Hr_2}{\delta vec(\mathbf{\widehat{a}}^*)} = \mathbf{\Omega}_2^H \mathbf{\Omega}_2 vec(\mathbf{\widehat{a}}) -\mathbf{\Omega}_2^Hvec(\mathbf{y})=0 \label{siso_sm_8}
+\end{align}
+\begin{align}
+\frac{\delta r_3^Hr_3}{\delta vec(\mathbf{\widehat{S}}^*)} =\mathbf{S}_{sel}^H \mathbf{S}_{sel} vec(\mathbf{\widehat{S}}) -\mathbf{S}_{sel}^Hvec(\mathbf{q})=0 \label{siso_sm_9}
+\end{align}
+\begin{align}
+\mathbf{S}_{sel}^H \mathbf{S}_{sel}=\mathbf{S}_{sel} \label{siso_sm_10}
+\end{align}
+В выражениях \eqref{siso_sm_10}\eqref{siso_sm_9}\eqref{siso_sm_8} присутствует ноль, мы можем минимизировать сумму обоих выражений. Указанное выражение может быть трансформировано в систему нелинейных уравнений при умножении на $-1$. Мы рассмотрели два метода решения системы нелинейных уравнений.
+\begin{itemize}
+\item Перемежающийся метод наименьших квадратов\cite{Book66}
+\item Метод Ньютона\cite{Book65}
+\end{itemize}
+Алгоритм ПМНК описан ниже и работает в следующем порядк\cite{Book66}:
+\begin{itemize}
+\item Установить начальную точку $\theta_0$
+\item Решить уравнение \eqref{} по отношению к $vec(\mathbf{S})$ с фиксированным $\mathbf{A}$ и обновить таким образом  $vec(\mathbf{S})$
+\item Решить уравнение \eqref{} по отношению к $\mathbf{A}$ с фиксированным $vec(\mathbf{S})$ и обновить таким образом  $\mathbf{A}$
+\item Проверить, было ли уменьшение функции невязки на величину меньшую чем порог. Если уменьшение было больше порога, повторить процесс.
+\end{itemize}
+Метод Ньютона включает в себя следующие шаги\cite{Book64}:
+\begin{itemize}
+\item Установить начальную точку $\theta_0$
+\item Решить систему  линейных алгебраических уравнений \eqref{siso_sm_11} в точке $\theta_0$\eqref{siso_sm_12}.
+\item Проверить, было ли уменьшение функции невязки на величину меньшую чем порог. Если уменьшение было больше порога, повторить процесс.
+\end{itemize}
+Приемник не может решить данную систему в одну итерацию и совершит некоторое количество итераций. Задача может быть плохо поставлена на некоторых итерациях в силу присутствия аддитивного шума в данных. Для устранения такого влияния были рассмотрены два дополнительных подхода для увеличения стабильности алгоритма:
+\begin{itemize}
+\item  Правило $Powell-Wolf$ для адаптации шага итерации\cite{Book62}\cite{Book63}
+\item  Алгоритм $Levenberg-Marquadrt$ по регуляризации сходимости\cite{Book66}\cite{Book68}\eqref{siso_sm_11}
+\end{itemize}
+Основное решаемое уравнение метода Ньютона является решение системы линейных уравнений указанное на \eqref{siso_sm_18} В указанном выражении $F$ это уравнение минимизируемое до нуля\eqref{siso_sm_13}. Вектор $F$ является первой производной оптимизируемой функции. В качестве матрицы $J$ используется вторая производная оптимизируемой функции либо Якобиан вектора $F$\eqref{siso_sm_19}.
+\begin{align}
+\mathbf{J\theta}=-\mathbf{F} \label{siso_sm_11}
+\end{align}
+\begin{align}
+\begin{bmatrix}
+vec(\mathbf{\widehat{S}})\\
+vec(\mathbf{\widehat{a}})\\
+\end{bmatrix}^{k+1}= 
+\begin{bmatrix}
+vec(\mathbf{\widehat{S}})\\
+vec(\mathbf{\widehat{a}})\\
+\end{bmatrix}^{k}+ \alpha \mathbf{\theta} \label{siso_sm_12}
+\end{align}
+\begin{align*}
+\alpha=(0;1]
+\end{align*}
+\begin{align}
+\mathbf{F}=\begin{bmatrix}
+\frac{\delta \mathbf{r}_1^H \mathbf{r}_1}{\delta vec(\mathbf{\widehat{S}})^*}\\
+\frac{\delta \mathbf{r}_2^H \mathbf{r}_2}{\delta vec(\mathbf{\widehat{a}})^*}\\
+\frac{\delta \mathbf{r}_3^H \mathbf{r}_3}{\delta vec(\mathbf{\widehat{S}})^*}\\
+\end{bmatrix}=0 \label{siso_sm_13}
+\end{align}
+%\begin{align}
+%\frac{\delta r_1^Hr_1}{\delta vec(\mathbf{S}^*)}+\frac{\delta r_2^Hr_2}{\delta vec(\mathbf{A}^*)}+\frac{\delta r_3^Hr_3}{\delta vec(\mathbf{S}^*)}=0
+%\end{align}
+\begin{align}
+\mathbf{\Omega}_1^H \mathbf{\Omega}_1 vec(\mathbf{\widehat{S}}) -\mathbf{\Omega}_1^Hvec(\mathbf{y})+\mathbf{\Omega}_2^H \mathbf{\Omega}_2 vec(\mathbf{\widehat{a}})  \label{siso_sm_14}
+\end{align}
+\begin{align}
+-\mathbf{\Omega}_2^Hvec(\mathbf{y})+\mathbf{S}_{sel} vec(\mathbf{\widehat{S}}) -\mathbf{S}_{sel}^Hvec(\mathbf{q})=0 \label{siso_sm_15}
+\end{align}
+\begin{align*}
+\begin{bmatrix}
+\mathbf{\Omega}_1&0 \\
+0&\mathbf{\Omega}_2\\
+\mathbf{S}_{sel}&0 \\
+\end{bmatrix}^H 
+\begin{bmatrix}
+vec(\mathbf{y}) \\
+vec(\mathbf{y})\\
+\mathbf{q} \\
+\end{bmatrix}-
+\begin{bmatrix}
+\mathbf{\Omega}_1&0 \\
+0&\mathbf{\Omega}_2\\
+\mathbf{S}_{sel}&0 \\
+\end{bmatrix}^H
+\begin{bmatrix}
+\mathbf{\Omega}_1&0 \\
+0&\mathbf{\Omega}_2\\
+\mathbf{S}_{sel}&0 \\
+\end{bmatrix}\begin{bmatrix}
+vec(\mathbf{\widehat{S}})\\
+vec(\mathbf{\widehat{a}})\\
+\end{bmatrix} 
+\end{align*}
+\begin{align}
+\begin{bmatrix}
+\mathbf{S}_{sel}^Hvec(\mathbf{q})+\mathbf{\Omega}_1^Hvec(\mathbf{y}) \\
+\mathbf{\Omega}_2^Hvec(\mathbf{y})\\
+\end{bmatrix} \label{siso_sm_16}
+\end{align}
+\begin{align}
+-\begin{bmatrix}
+\mathbf{\Omega}_1^H \mathbf{\Omega}_1+ \mathbf{S}_{sel}& \mathbf{0}\\
+\mathbf{0} & \mathbf{\Omega}_2^H \mathbf{\Omega}_2\\
+\end{bmatrix} \cdot \begin{bmatrix}
+vec(\mathbf{\widehat{S}})\\
+vec(\mathbf{\widehat{a}})\\
+\end{bmatrix} =\mathbf{F} \label{siso_sm_17}
+\end{align}
+Поскольку оптимизируемая функция \eqref{siso_sm_12} является аналитической мы не используем исчисление Виртингера и ищем частную производную по отношению к вектору $\theta$\cite{Book58}.
+\begin{align}
+\mathbf{J}=\frac{\delta \mathbf{F}}{\delta \mathbf{\theta}} \label{siso_sm_18}
+\end{align}
+\begin{align}
+\mathbf{J}=-\begin{bmatrix}
+\mathbf{\Omega}_1^H \mathbf{\Omega}_1+ \mathbf{S}_{sel}& \mathbf{0}\\
+\mathbf{0} & \mathbf{\Omega}_2^H \mathbf{\Omega}_2\\ 
+\end{bmatrix} \label{siso_sm_19}
+\end{align} 
+Приемник на каждой итерации решает систему линейных уравнений и обновляет искомый вектор для следующего шага. Оптимизационный алгоритм уменьшает функцию невязки и уменьшает первую производную до нуля. Поскольку вторая норма является вогнутой функцией, следовательно у оптимизируемой функции существует только одно решение.
+\subsection{Полу-слепой приемник}
+Оптимизируемая функция может быть записана в общей форме в отличии от того как это было описано ранее\eqref{siso_jsm_1}. Записанная обобщенная форма делает каждую итерацию вычислительно дороже. Следует заметить что функции $r_1$ и $r_2$ равны между собой в той же самой точке $\mathbf{a}$ и $\mathbf{S}$. Функции могут быть заменены между собой при условии что переменные обеих функции равны между собой. 
+\begin{align*}
+\mathbf{r}_1= vec(\mathbf{y})-\mathbf{\Omega}_1 \cdot vec(\mathbf{\widehat{S}})=\mathbf{r}_2 
+\end{align*}
+\begin{align*}
+\mathbf{r}_2= vec(\mathbf{y})-\mathbf{\Omega}_2 \cdot vec(\mathbf{\widehat{a}})
+\end{align*}
+\begin{align*}
+\mathbf{r}_3=\mathbf{q} -\mathbf{S}_{sel} vec(\mathbf{\widehat{S}});
+\end{align*}
+\begin{align}
+vec(\mathbf{y})-\mathbf{\Omega}_1 \cdot vec(\mathbf{\widehat{S}}_1)= vec(\mathbf{y})-\mathbf{\Omega}_2 \cdot vec(\mathbf{\widehat{a}}_1)  \label{siso_jsm_1}
+\end{align}
+Для расчета производных по обеим переменным $\mathbf{a}$ и $\mathbf{S}$ мы используем следующее свойство \eqref{siso_jsm_3} изменив правую часть выражения где обе переменные явно выражены\eqref{siso_jsm_7}\cite{Book26}.
+\begin{align}
+\min_{
+\begin{bmatrix}
+vec(\mathbf{\widehat{S}})\\
+vec(\mathbf{\widehat{a}})\\
+\end{bmatrix}
+} \mathbf{r}_1^H\mathbf{r}_1 +\mathbf{r}_3^H\mathbf{r}_3 \label{siso_jsm_2}
+\end{align}
+\begin{align*}
+\mathbf{G}=\mathbf{r}_1^H\mathbf{r}_1  +\mathbf{r}_3^H\mathbf{r}_3 
+\end{align*}
+\begin{align}
+\frac{\delta \mathbf{G}}{\delta \begin{bmatrix}
+vec(\mathbf{\widehat{S}}^*)\\
+vec(\mathbf{\widehat{a}}^*)\\
+\end{bmatrix}}=
+\frac{\delta \mathbf{r}_1^H\mathbf{r}_1}{\delta \begin{bmatrix}
+vec(\mathbf{\widehat{S}}^*)\\
+vec(\mathbf{\widehat{a}}^*)\\
+\end{bmatrix}}+
+\frac{\delta \mathbf{r}_3^H\mathbf{r}_3}{\delta \begin{bmatrix}
+vec(\mathbf{\widehat{S}}^*)\\
+vec(\mathbf{\widehat{a}}^*)\\
+\end{bmatrix}} \label{siso_jsm_3}
+\end{align}
+\begin{align}
+\frac{\delta \mathbf{r}_1^H\mathbf{r}_1}{\delta \begin{bmatrix}
+vec(\mathbf{\widehat{S}}^*)\\
+vec(\mathbf{\widehat{a}}^*)\\
+\end{bmatrix}}=
+\begin{bmatrix}
+\frac{\delta \mathbf{r}_1^H\mathbf{r}_1}{\delta vec(\mathbf{\widehat{S}}^*)} \\
+\frac{\delta \mathbf{r}_1^H\mathbf{r}_1}{\delta vec(\mathbf{\widehat{a}}^*)} \\
+\end{bmatrix} \label{siso_jsm_4}
+\end{align}
+\begin{align}
+\frac{\delta \mathbf{G}}{\delta \begin{bmatrix}
+vec(\mathbf{\widehat{S}}^*)\\
+vec(\mathbf{\widehat{a}}^*)\\
+\end{bmatrix}}=
+\begin{bmatrix}
+\frac{\delta \mathbf{r}_1^H\mathbf{r}_1}{\delta vec(\mathbf{\widehat{S}}^*)} \\
+\frac{\delta \mathbf{r}_1^H\mathbf{r}_1}{\delta vec(\mathbf{\widehat{a}}^*)} \\
+\end{bmatrix}+
+\begin{bmatrix}
+\frac{\delta \mathbf{r}_3^H\mathbf{r}_3}{\delta vec(\mathbf{\widehat{S}}^*)} \\
+\frac{\delta \mathbf{r}_3^H\mathbf{r}_3}{\delta vec(\mathbf{\widehat{a}}^*)} \\
+\end{bmatrix} \label{siso_jsm_5}
+\end{align}
+\begin{align}
+\frac{\delta \mathbf{r}_1^H\mathbf{r}_1}{\delta vec(\mathbf{\widehat{S}}^*)} = 
+-\mathbf{\Omega}_1^H(vec(\mathbf{y}) -\mathbf{\Omega}_1vec(\mathbf{\widehat{S}}))=-\mathbf{\Omega}_1^H \mathbf{r}_1 \label{siso_jsm_6}
+\end{align}
+\begin{align}
+\frac{\delta \mathbf{r}_1^H\mathbf{r}_1}{\delta vec(\mathbf{\widehat{a}}^*)} =-\mathbf{\Omega}_2^H(vec(\mathbf{y}) -\mathbf{\Omega}_2vec(\mathbf{\widehat{a}}))=-\mathbf{\Omega}_2^H \mathbf{r}_2 \label{siso_jsm_7}
+\end{align}
+\begin{align}
+\frac{\delta \mathbf{r}_1^H\mathbf{r}_1}{\delta vec(\mathbf{\widehat{a}}^*)} = \mathbf{\Omega}_2^H\mathbf{\Omega}_1 vec(\mathbf{\widehat{S}}) -\mathbf{\Omega}_2^Hvec(\mathbf{y}) \label{siso_jsm_8}
+\end{align}
+\begin{align}
+\frac{\delta \mathbf{r}_3^H\mathbf{r}_3}{\delta vec(\mathbf{\widehat{S}}^*)} = 
+\mathbf{S}_{sel}^H\mathbf{S}_{sel}vec(\mathbf{\widehat{S}}) -\mathbf{S}_{sel}^Hvec(\mathbf{y})\label{siso_jsm_9}
+\end{align}
+\begin{align}
+\frac{\delta \mathbf{r}_3^H\mathbf{r}_3}{\delta vec(\mathbf{\widehat{a}}^*)} = \mathbf{0} \label{siso_jsm_10}
+\end{align}
+Для решения оптимизационной задачи, необходимо использовать так же метод Ньютона либо ПМНК.Для этого производная функции невязки должно быть приравнено к нулю\eqref{siso_jsm_12}\cite{Book61}. Поскольку функция аналитична, можно вычислить Якобиан функции\eqref{siso_jsm_11}. Якобиан будет отличаться от вычисленного в предыдущем разделе\eqref{siso_jsm_13}. В дальнейшем алгоритм реализован в абсолютной той же форме как и описанный выше метод\eqref{siso_jsm_13}.
+\begin{align}
+\mathbf{J}=\begin{bmatrix}
+\frac{\delta \mathbf{r}_1^H\mathbf{r}_1}{\delta vec(\mathbf{\widehat{S}}^*)vec(\mathbf{\widehat{S}})}&\frac{\delta \mathbf{r}_1^H\mathbf{r}_1}{\delta vec(\mathbf{\widehat{S}}^*)vec(\mathbf{A})}\\
+\frac{\delta \mathbf{r}_1^H\mathbf{r}_1}{\delta vec(\mathbf{\widehat{a}}^*)vec(\mathbf{\widehat{S}})}&\frac{\delta \mathbf{r}_1^H\mathbf{r}_1}{\delta vec(\mathbf{\widehat{a}}^*)vec(\mathbf{\widehat{a}})}\\
+\end{bmatrix}=\begin{bmatrix}
+\frac{\delta \mathbf{F}}{\delta vec(\mathbf{\widehat{S}})}&\frac{\delta \mathbf{F}}{\delta vec(\mathbf{\widehat{a}})}
+\end{bmatrix} \label{siso_jsm_11}
+\end{align}
+\begin{align}
+\mathbf{F}=\begin{bmatrix}
+-\mathbf{\Omega}_1^H(\mathbf{r}_1)+\mathbf{S}_{sel}(\mathbf{r}_3)\\
+-\mathbf{\Omega}_2^H(\mathbf{r}_2)\\
+\end{bmatrix}=0\label{siso_jsm_12}
+\end{align}
+\begin{align}
+\mathbf{J}=\begin{bmatrix}
+\mathbf{\Omega}_1^H\mathbf{\Omega}_1+\mathbf{S}_{sel}&\mathbf{\Omega}_1^H\mathbf{\Omega}_2\\
+\mathbf{\Omega}_2^H\mathbf{\Omega}_1&\mathbf{\Omega}_2^H\mathbf{\Omega}_2
+\end{bmatrix}\label{siso_jsm_13}
+\end{align}
+\section{Полу-слепой приемник для оценки канала с памятью}
+\subsection{Приближенное устранение влияния канала}
+В данной секции будет описан метод приближенного вычисления влияния на принятый сигнал\eqref{siso_a_1}\eqref{siso_a_2}. В модели системы описанной в секции в отличии от предыдущего раздела $\mathbf{H}\neq \mathbf{I}$\eqref{siso_a_3}\cite{Book5}. Иначе говоря данные на выходе передатчика проходят через канал с импульсной характеристикой. С точки зрения параметрической модели можно представить влияние канала как некоторое количество многолучевых компонент переданного сигнала поступающих на вход приемника с фиксированными задержками\cite{}. В данном разделе предполагается что длительность импульсной характеристики канала меньше чем величина $T/T_s$. 
+\begin{align}
+\mathbf{y}=\mathbf{Hx}+\mathbf{n}
+\end{align}
+\begin{align}
+\mathbf{x}=\mathbf{\Omega}_1vec(\mathbf{S})
+\end{align}
+Описанный ниже алгоритм основан на измерении канала при помощи методов циклического префикса\eqref{siso_a_5}. Однако он позволяет избежать дополнительного внесистемного внедрения в систему циклического префикса для анализа канала\eqref{siso_a_6}. Рассмотрим матрицу $\mathbf{H}$ с точки  зрения параметрической модели\eqref{siso_a_5}. Матрица $\mathbf{H}$ имеет нижнетреугольную структуру а так же структуру Тоеплица\eqref{siso_a_13}\cite{Book23}. В случае если выполняется допущение описанное выше, только первые  $T/T_s$ элементов могут быть ненулевыми\eqref{siso_a_6}.
+\begin{align}
+\mathbf{H}=\begin{bmatrix}
+h_{1}&0&0&\cdots &0\\
+h_{2}&h_{1}&0&\cdots &0\\
+h_{3}&h_{2}&h_{1}&\cdots &0\\
+\vdots\\
+h_{T}&h_{T-1}&h_{1}&\cdots &h_{1}\\
+\end{bmatrix}
+\end{align}
+\begin{align}
+h_{i}= 0 \; if \; i>T/T_s
+\end{align} Таким образом для нахождения канала необходимо узнать первые $T/T_s$ элементов.
+Передатчик может передавать известные для приемника символы в первый временной интервал для каждой из поднесущих. Иначе говоря рассматривая передаваемую информацию, в матрице $\mathbf{S}$ приемнику известен первый столбец. Однако поскольку в системе ОбЧРК используется циклическая свертка между всеми символами в блоке существует смешение между символами на протяжении всего блока данных\eqref{siso_a_13}\cite{Book23}. Таким образом даже в момент времени когда передается первый импульс существуют дополнительные составляющие принадлежащие остальным символам\eqref{siso_a_6}. По этой причине описанный алгоритм является приближенным, так как он подвержен искажениям из других временных интервалов. 
+\begin{align}
+\mathbf{S}_{rec}=\begin{bmatrix}
+s_{1,1}&0&0&\cdots &0\\
+s_{2,1}&0&0&\cdots &0\\
+\vdots\\
+s_{F,1}&0&0&\cdots &0\\
+\end{bmatrix}
+\end{align}
+\begin{align}
+\mathbf{S}_{tr}=\begin{bmatrix}
+s_{1,1}&s_{1,2}&s_{1,3}&\cdots &s_{1,T_s}\\
+s_{2,1}&s_{2,2}&s_{2,3}&\cdots &s_{2,T_s}\\
+\vdots\\
+s_{F,1}&s_{F,2}&s_{F,3}&\cdots &s_{F,T_s}\\
+\end{bmatrix}
+\end{align}
+\begin{align}
+\mathbf{x}_{rec}=\mathbf{\Omega}_1vec(\mathbf{S}_{rec})
+\end{align}
+\begin{align}
+\mathbf{y}=\mathbf{\Omega}_1vec(\mathbf{S}_{tr})+\mathbf{n}
+\end{align}
+\begin{align}
+\mathbf{x}_{rec}=\begin{bmatrix}
+x_{r,1}&x_{r,2}&x_{r,3}&\cdots&x_{r,T}\\
+\end{bmatrix}^T
+\end{align}
+\begin{align}
+\mathbf{X}_{cor}=\begin{bmatrix}
+x_{r,1}&x_{r,T}&x_{r,T-1}&\cdots & x_{r,T-F}\\
+x_{r,2}&x_{r,1}&x_{r,T}&\cdots & x_{r,T-F+1}\\
+\vdots
+x_{r,T}&x_{r,T-1}&x_{r,T-2}&\cdots & x_{r,T-F-1}\\
+\end{bmatrix}
+\end{align}
+\begin{align}
+\mathbf{h}_{appx}=\mathbf{X}_{cor}^*\cdot \mathbf{H}\mathbf{x}_{rec}
+\end{align}
+\begin{align}
+\mathbf{h}_{appx}(1)=\mathbf{x}_{rec}^H H \mathbf{x}_{rec}
+\end{align}
+\begin{align}
+\mathbf{h}_{appx}(n) \approx \mathbf{x}_{rec}^H h_n \mathbf{x}_{rec}
+\end{align}
+Алгоритм измерения канала основан на корреляционном подходе. Вычисляя корреляцию между принятым и известным сигналом приемник находит многолучевые компоненты, выбирает наиболее весомые из них и использует как модель канала. 
+Существует одна дополнительная техника позволяющая уменьшить влияние  меж-символьной интерференции для циклического префикса. Возможно изменение коэффициента $\alpha$ внутри одного передающего блока. Таким образом передатчик может подстраивать перекрывающиеся под спектру блоки по частотам, уменьшив для определенной несущей меж-канальную интерференцию. Для устранения меж-канальной интерференции для одной поднесущей необходимо изменить коэффициенты $\alpha$ для самой поднесущей и для двух соседних каналов. Таким образом уменьшив меж-канальную интерференцию для соответствующих символов возможно увеличить точность оценки канала по известным символам.
+\subsection{Полу-слепой приемник}
+В случае рассмотрения канала с памятью задача может быть переписана похожим образом с точки зрения неизвестного для приемника канала \eqref{ce_2}  и известными символами\eqref{ce_1}.
+\begin{align}
+\mathbf{y}=\mathbf{D}_1\mathbf{h}+\mathbf{e}
+\label{ce_1}
+\end{align}
+\begin{align}
+\mathbf{y}=\mathbf{H}\mathbf{\Omega}_1vec(\mathbf{S})+\mathbf{e}
+\label{ce_2}
+\end{align}
+\begin{align*}
+\mathbf{h}\in\compl^{L+1\times 1}
+\end{align*}
+\begin{align}
+\mathbf{r}_s=\mathbf{y}-\mathbf{D}_1\mathbf{h}
+\label{ce_3}
+\end{align}
+При этом вектор $\mathbf{h}$  является коэффициентами распространения для заданых задержек при условии что максимальная задержка канала известна и равна $L+1$. Матрица $\mathbf{D}_1$ конструируется при помощи сдвига вектора столбца $\mathbf{\Omega}_1vec(\mathbf{S})$ по вертикали и  соединения сдвинутых блоков по вертикали друг к другу $L+1$ раз\cite{Book53}.
+\begin{align}
+\min_{\mathbf{h}} \mid \mid\mathbf{y}-\mathbf{D}_1\mathbf{h} \mid \mid^2=\min_{\mathbf{h}}\mathbf{r}_s^H\mathbf{r}_s
+\label{ce_4}
+\end{align}
+\begin{align}
+\frac{\delta\mathbf{r}_s^H\mathbf{r}_s}{\delta\mathbf{h}^*}=-\mathbf{D}_1(\mathbf{y}-\mathbf{D}_1^H\mathbf{h})=0
+\label{ce_5}
+\end{align}
+\begin{align}
+\mathbf{h}=(\mathbf{D}_1^H\mathbf{D}_1)^{-1}\mathbf{D}_1^H\mathbf{y}
+\label{ce_6}
+\end{align}
+\begin{align}
+\mathbf{h}_{opt}=\mathbf{D}_1^+\mathbf{y}
+\label{ce_7}
+\end{align}
+Как показано на выражении \eqref{ce_4}, в случае если все переданные данные известны, может быть применен алгоритм наименьших квадратов для определения значений неизвестных коэффициентов передачи канала \cite{Book47}. Следует заметить что приемник должен знать максимальную задержку принятых данных . Метод наименьших квадратов описан в предыдущих частях работы и использует исчисление Виртингера\eqref{ce_5} для вычисления частной производной по неизвестной переменной и приравнивания ее к нулю\eqref{ce_6}. В дальнейшем вычисляется псевдо-обратная матрица для указанной матрицы\eqref{ce_7}. Решение для метода наименьших квадратов в данной ситуации представлено в следующем выражении\eqref{ce_7}. 
+В практическом смысле если размер передаваемого блока слишком большой имеет смысл передавать лишь часть символов известными а в остальных передавать информационную составляющую. 
+ \begin{align}
+ \mathbf{x}_{rec}=\mathbf{\Omega}_1vec(\mathbf{S})=\mathbf{\Omega}_1 \mathbf{S}_{sel}vec(\mathbf{S}_{kn})+\mathbf{\Omega}_1(\mathbf{I}-\mathbf{S}_{sel})vec(\mathbf{S}_{unk})
+ \label{ce_8}
+\end{align}
+\begin{align}
+\mathbf{\Omega}_1 \mathbf{S}_{sel}=\mathbf{\Omega}_k
+\label{ce_9}
+\end{align}
+\begin{align}
+\mathbf{\Omega}_1 (\mathbf{I}-\mathbf{S}_{sel})=\mathbf{\Omega}_u
+\label{ce_10}
+\end{align}
+\begin{align}
+vec(\mathbf{S}_{kn})\in \compl^{Z\times 1} vec(\mathbf{S}_{unk})\in \compl^{FT_s-Z\times 1}
+\label{ce_11}
+\end{align}
+\begin{align}
+\mathbf{\Omega}_u \in\compl^{T\times FT_s-Z} \mathbf{\Omega}_k \in\compl^{T\times Z}
+\label{ce_12}
+\end{align}
+В таком случае приемник должен решить задачу как по обнаружению символов, так и по определению значений канальных коэффициентов. Для этого мы можем разделить символы на две части, известную и неизвестную. После чего убирая известные составляющие мы дополнительно уменьшаем внутреннюю интерференцию на приемнике и записываем задачу в следующей форме\eqref{ce_17}.
+ \begin{align}
+\mathbf{y}=\mathbf{H}\mathbf{\Omega}_kvec(\mathbf{S}_{kn})+\mathbf{H}\mathbf{\Omega}_uvec(\mathbf{S}_{unk})+\mathbf{e}
+\label{ce_13}
+\end{align}
+\begin{align}
+\mathbf{r}_s=\mathbf{y}-\mathbf{H}\mathbf{\Omega}_kvec(\mathbf{S}_{kn})-\mathbf{H}\mathbf{\Omega}_uvec(\mathbf{S}_{unk})
+\label{ce_14}
+\end{align}
+\begin{align}
+\mathbf{y}=\mathbf{D}_k\mathbf{h}+\mathbf{D}_u\mathbf{h}+\mathbf{e}
+\label{ce_15}
+\end{align}
+\begin{align}
+\mathbf{r}_s=\mathbf{y}-\mathbf{D}_k\mathbf{h}-\mathbf{D}_u\mathbf{h}
+\label{ce_17}
+\end{align}
+Описанные выражения позволяют записать принятые данные как сумму двух наборов символов, известных и неизвестных. Приемник позволяет разделить данные наборы на различных уровнях, вплоть до суммы двух принятых сигналов. Однако разделение по временной области подобных наборов невозможно, поскольку данные модулируются во времени. Для разделения наборов по символам необходимо разделить модулирующую матрицу $\mathbf{\Omega}_1$ на две составляющие для известных символов и неизвестных. 
+Подобный подход позволяет оценить неизвестные символ значительно точнее даже  в случае использования ПМНК.  Таким образом приемник конструирует две функции невязки и оптимизирует по ним последовательно решая различные задачи. Функция невязки основана на второй норме для того чтобы обеспечить вогнутость минимизируемой функции. Данная задача может быть решена при помощи ПМНК и алгоритма Ньютона.
+   \begin{align}
+ \min_{vec(\mathbf{S}_{unk})\mathbf{h}}\mathbf{r}_s^H\mathbf{r}_s
+ \label{ce_als_1}
+ \end{align}
+\begin{align}
+\frac{\delta\mathbf{r}_s^H\mathbf{r}_s}{\delta\mathbf{h}^*}=-(\mathbf{D}_u+\mathbf{D}_k)^H(\mathbf{y}-\mathbf{D}_k\mathbf{h}-\mathbf{D}_u\mathbf{h})=0
+\label{ce_als_2}
+\end{align}
+\begin{align}
+\frac{\delta\mathbf{r}_s^H\mathbf{r}_s}{\delta vec(\mathbf{S}_{unk})^*}=-(\mathbf{H}\mathbf{\Omega}_k)^H(\mathbf{y}-\mathbf{H}\mathbf{\Omega}_kvec(\mathbf{S}_{kn})-\mathbf{H}\mathbf{\Omega}_uvec(\mathbf{S}_{unk}))=0
+\label{ce_als_3}
+\end{align}
+\begin{align}
+\mathbf{h}_{opt}=(\mathbf{D}_u+\mathbf{D}_k)^+\mathbf{y}
+\label{ce_als_31}
+\end{align}
+\begin{align}
+vec(\mathbf{S}_{unk})_{opt}=(\mathbf{H}\mathbf{\Omega}_k)^+(\mathbf{y}-\mathbf{H}\mathbf{\Omega}_kvec(\mathbf{S}_{kn}))
+\label{ce_als_32}
+\end{align}
+Оптимизируемая функция записана в следующем виде\eqref{ce_als_1}. Выражение   $\mathbf{r}_s$ может быть переписано в двух равных формах.Оптимальная точка для минимизируемой функции является точкой где частная производная равна нулю\eqref{ce_als_2}\eqref{ce_als_3}. Поскольку оптимизируемая функция является вогнутой такая точка только одна и является глобальным минимумом. Мы записываем частную производную по неизвестным символам и величинам каналов. Для этого было использовано исчисление Виртингера, поскольку искомые функции комплексные. 
+Последующие выражения были приравнены к нулю и полученная система нелинейных алгебраических выражений была решена. Для того чтобы решить указанную выше систему мы использовали как алгоритм ПМНК так и метод Ньютона.
+Метод ПМНК на каждой итерации вычисляет решение для СЛАУ с учетом каждой из переменной Оптимизационный процесс описан ниже.
+\begin{itemize}
+\item Установить $\hat{\mathbf{h}}$ и $\hat{vec(\mathbf{S}_{unk})}$ как случайные величины и нули соответственно.
+\item Решить СЛАУ \eqref{ce_als_31} для вектора $\hat{\mathbf{h}}$ и обновить оцениваемый вектор $\hat{\mathbf{h}}$
+\item Решить СЛАУ \eqref{ce_als_32} для вектора $\hat{vec(\mathbf{S}_{unk})}$ и обновить оцениваемый вектор $\hat{vec(\mathbf{S}_{unk})}$
+\item  В случае если функция невязки уменьшилась больше чем на пороговое число повторить процесс с шага 2.
+\end{itemize}
+\begin{align}
+\mathbf{J}\mathbf{\theta}=-\mathbf{F}
+\label{ce_n_1}
+\end{align}
+\begin{align}
+\mathbf{\theta}_{k+1}=\mathbf{\theta}_{k}-\mathbf{J}^+\mathbf{F}
+\label{ce_n_2}
+\end{align}
+\begin{align}
+\mathbf{J}=\begin{bmatrix}
+\frac{\delta\mathbf{r}_s^H\mathbf{r}_s}{\delta\mathbf{h}^*\mathbf{h}^*}&\frac{\delta\mathbf{r}_s^H\mathbf{r}_s}{\delta vec(\mathbf{S}^*)\mathbf{h}}\\
+\frac{\delta\mathbf{r}_s^H\mathbf{r}_s}{\delta\mathbf{h}^*vec(\mathbf{S})}&\frac{\delta\mathbf{r}_s^H\mathbf{r}_s}{\delta vec(\mathbf{S}^*)vec(\mathbf{S})}\\
+\end{bmatrix}
+\label{ce_n_3}
+\end{align}
+\begin{align}
+\mathbf{F}=\begin{bmatrix}
+\frac{\delta\mathbf{r}_s^H\mathbf{r}_s}{\delta\mathbf{h}^*}\\
+\frac{\delta\mathbf{r}_s^H\mathbf{r}_s}{\delta vec{\mathbf{S}}^*}
+\end{bmatrix}
+\label{ce_n_4}
+\end{align}
+\begin{align}
+\mathbf{F}=\begin{bmatrix}
+-(\mathbf{D}_u+\mathbf{D}_k)^H(\mathbf{y}-\mathbf{D}_k\mathbf{h}-\mathbf{D}_u\mathbf{h})\\
+-(\mathbf{H}\mathbf{\Omega}_k)^H(\mathbf{y}-\mathbf{H}\mathbf{\Omega}_kvec(\mathbf{S}_{kn})-\mathbf{H}\mathbf{\Omega}_u vec(\mathbf{S}_{unk}))
+\end{bmatrix}
+\label{ce_n_5}
+\end{align}
+\begin{align}
+\mathbf{J}=\begin{bmatrix}
+(\mathbf{D}_k+\mathbf{D}_u)^H(\mathbf{D}_k+\mathbf{D}_u) &(\mathbf{D}_k+\mathbf{D}_u)^H\mathbf{H\Omega}_k \\
+(\mathbf{H\Omega}_k)^H(\mathbf{D}_k+\mathbf{D}_u)&(\mathbf{H\Omega}_k)^H\mathbf{H\Omega}_1\\
+\end{bmatrix}
+\label{ce_n_5}
+\end{align}
+\begin{align}
+\mathbf{\theta}=\begin{bmatrix}
+1\\
+\mathbf{0}\\
+\end{bmatrix}
+\label{ce_n_6}
+\end{align}
+Алгоритм Ньютона учитывает взаимозависимости между обеими формами функции невязки и позволяет ускорить сходимость метода при помощи решения систем нелинейных уравнений. Метода описан достаточно хорошо в литературе \cite{Book62}.Мы должны выразить Якобиан\eqref{ce_n_3} для частных производных приравниваемых к нулю на каждой итерации алгоритма. Для этого мы используем свойство что обе формы записи невязки равны между собой. Итоговый Якобиан записан как следует в форме \eqref{ce_n_5}. Сам алгоритм описан ниже. 
+\begin{itemize}
+\item Установить переменную $\mathbf{\theta}$ in следующим способом \eqref{ce_n_6}.
+\item Рассчитать Якобиан и частную производную в данной точке $\mathbf{\theta}$
+\item Решить СЛАУ \eqref{ce_n_1} в заданной точке $\mathbf{\theta}$
+\item Обновить заданную точку $\mathbf{\theta}$ при помощи выражения \eqref{ce_n_2}.
+\item В случае если функция невязки уменьшилась больше чем на пороговое число повторить процесс с шага 2.
+\end{itemize}
+Метод Ньютона может быть стабилизирован при помощи методов регуляризации для обеспечения  надежной сходимости даже в случае плохого собственного числа матрицы при помощи правила меж-итерационного шага $Powell-Wolf$ \cite{Book66} и при помощи алгоритма Левенберга-Марквардта\cite{Book65}. Так же возможно применение двух дополнительных методов регуляризации описанных для полу-слепых приемников \cite{Book53}\cite{Book52}. Однако они требуют оценки данных по большему количеству блоков чем один.
+\section{Результаты моделирования}
+В данной секции мы рассматриваем проведенное моделирование для анализа работы алгоритмов описанных выше.
+Производительность системы ОбЧРК для различных коэффициентов перекрытия была получена при помощи моделирования. Параметры системы описаны в таблице \ref{}. В системе полагается аддитивный белый Гауссов шум без дополнительного кодирования.
+\begin{table}[H]
+\caption{\label{tab:sim_alpha}GFDM simulation parameters}
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+Параметр & Обозначение & Значение \\
+\hline
+\hline
+Схема модуляции & $\mu$ & 2(КФМ) \\
+\hline
+Отсчетов на символ & $T/T_s$ & 32 \\
+\hline
+Поднесущих&$F$&32 \\
+\hline
+Размер блока& $T_s$  &15 \\
+\hline
+Тип фильтра&  &КиПК \\
+\hline
+Фактор перекрытия&$\alpha$  &0,0.3,0.5, 1 \\
+\hline
+Канал& $h$ &АБГШ \\
+\hline
+Префикс&  & Нет \\
+\hline
+Вид передачи&  & Некодированый\\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+Производительность системы ОбЧРК для сравнения различных величин $\alpha$ коэффициентов получены при помощи моделирования. В системе был положен аддитивный белый Гауссов шум без какого либо кодирования. В системе была использована квадратурная фазовая манипуляция. Количество поднесущих равно $F=32$. Количество временных отсчетов на каждый временной символ равно $T/T_s=F$. Количество временных символов равно $T_s=15$. В качестве фильтра был использован фильтр с характеристикой "Корень из приподнятого косинуса". В качестве коэффициента перекрытия были использованы 4 значения $\alpha$. В тесте для различных коэффициентов перекрытия мы измерили отношения символов к количеству ошибок для различных $\alpha$ как для приемника на основе согласованного фильтра так и для приемника на основе псевдо-обратной матрицы. Итоговые графики для соотношений символов к количеству ошибок показаны на рис. для приемника на основе псевдо-обратной матрицы и на рис. для приемника на основе согласованного фильтра.
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\columnwidth]{ZF_SER.eps}
+\caption{\textit{SER dependency from $\alpha$ roll-off factor. Zero-forced receiver}}
+\label{fs_1}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\columnwidth]{MF_SER.eps}
+\caption{\textit{SER dependency from $\alpha$ roll-off factor. Matched filter receiver}}
+\label{fs_2}
+\end{figure}
+Производительность системы ОбЧРК для работы полу-слепого приемника получены при помощи моделирования. В системе был положен аддитивный белый Гауссов шум без какого либо кодирования. В системе была использована квадратурная фазовая манипуляция. Количество поднесущих равно $F=32$. Количество временных отсчетов на каждый временной символ равно $T/T_s=F$. Количество временных символов равно $T_s=15$. В качестве фильтра был использован фильтр с характеристикой "Корень из приподнятого косинуса" с коэффициентом перекрытия $\alpha=0.5$. Коэффициенты передачи для различных поднесущих были выбраны как случайные целочисленные величины в диапазоне от $0$ до $1$. На приемнике величины оцениваются как пороговые устройства и приравниваются разрешенным величинам. Результаты производительности системы ОбЧРК  показаны на двух рисунках, на первом рисунке показано соотношение символов к ошибкам в случае если приемник знает истинную величину вектора $\mathbf{a}$, при помощи приемника на псевдообратной матрице, если приемник если не знает истинную величину вектора $\mathbf{a}$.Кроме того показаны результаты работы двух версий полу-слепых приемников. На втором рисунке представлена нормализованная ошибку между истинным значением вектора истинную величину вектора $\mathbf{a}$ и найденным приемником.
+\begin{table}[H]
+\caption{\label{tab:sim_alpha}GFDM simulation parameters}
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+Параметр & Обозначение & Значение \\
+\hline
+\hline
+Вид модуляции & $\mu$ & 2(КФМ) \\
+\hline
+Отсчетов на символ & $T/T_s$ & 32 \\
+\hline
+Поднесущие&$F$&32 \\
+\hline
+Разме блока передачи& $T_s$  &15 \\
+\hline
+Вид фильтра&  &КиПК \\
+\hline
+Коэффициент перекрытия&$\alpha$  &0.5 \\
+\hline
+Коэффициенты поднесущих& $\mathbf{a}_i$ & $randi([0 1])$ \\
+\hline
+Канал& $h$ &АБГШ \\
+\hline
+Префикс&  & Нет \\
+\hline
+Передача&  & Некодированно\\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\columnwidth]{SM_SER.eps}
+\caption{\textit{SER comparison for the semi-blind and zero-forced receiver}}
+\label{fs_3}
+\end{figure}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\columnwidth]{SM_RE.eps}
+\caption{\textit{Reconstruction error for the semi-blind receiver}}
+\label{fs_4}
+\end{figure}
+Кроме того мы добавили дополнительные графики для сравнения совместного и раздельного решения работы алгоритмов. Результаты сравнения так же получены при помощи моделирования.
+\begin{table}[H]
+\caption{\label{tab:sim_alpha}GFDM simulation parameters}
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+Параметр & Обозначение & Значение \\
+\hline
+\hline
+Сигнал/Шум & $log(P_s/P_n)$ & 10 \\
+\hline
+Отсчетов на символ & $T/T_s$ & 32 \\
+\hline
+Поднесущих&$F$&32 \\
+\hline
+Размер блока& $T_s$  &15 \\
+\hline
+Вид фильтра&  &КиПК \\
+\hline
+Коэффициент перекрытия&$\alpha$  &0.5 \\
+\hline
+Коэффициенты поднесущих& $randi([0 1])$ \\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\columnwidth]{SM_conv.eps}
+\caption{\textit{Convergence of the semi-blind receiver with respect to the iterations}}
+\label{fs_5}
+\end{figure}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\columnwidth]{SM_TIME.eps}
+\caption{\textit{Convergence time for the semi-blind receiver with respect to the SNR}}
+\label{fs_6}
+\end{figure}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\columnwidth]{SM_RES.eps}
+\caption{\textit{Residual decrease for the semi-bind receiver with respect to the iterations}}
+\label{fs_7}
+\end{figure}
+\section{Заключение}
+As conclusion for the first experiment we  can say that zero forced receiver show much better results in the symbol detection in comparison with matched filter. The difference become significant when the $roll-off$ factor of the $RRC$ filter increase. The ZF receiver has increased the SER slightly with $\alpha$ increasing which is shown at the fig.\ref{fs_1}. The MF receiver increase SER significantly more  with $\alpha$ increasing which is shown at fig.\ref{fs_2}. Explained results show, that ZF receiver should be preferred in the receiver. The ZF receiver achieve the better performance with the same self-interference ratio and allow to decrease the out-of-band radiation.
+As conclusion for the experiment with frequency coefficient selection approach we can see that algorithm decrease SER for 5-6 dB in comparison with system which know the frequency coefficients fig.\ref{fs_3}. This significant decrease in performance come from the non-convenient coefficient selection way in algorithm, where coefficient was chosen as $1$ if the resulting $abs(a_1)$ value is higher that 0.5. There are possible better solutions which increase performance of the algorithm and approaches to use predefined information at the receiver. We can see that joint algorithm show slightly worse performance in symbol and frequency coefficients detection fig.\ref{fs_3}fig.\ref{fs_4}in comparison with approximated algorithms. Those behaviour is explained from the approximated algorithm convergence. We take as the start point transmission coefficients equal to the zero. The approximated algorithm turn on less sub-carriers and make false negative errors. The false negative error lead to the better SER performance due to less estimated number of the symbols. The possible performance increase for the joint solution algorithm is the different weights for the objective function parts. The part for frequency coefficients estimations should have higher weight.
+The third experiment shows advantages of the joint algorithm. As we can see from the all three figures \ref{fs_5},\ref{fs_6},\ref{fs_7}. The residual decrease show that joint solution algorithm converge much faster than approximated. The typical number of iteration of the joint algorithm equal to $2$ and for the joint algorithm equal to the $200$. So significant difference neglect the difference between the computationally expensive iterations in the joint algorithm. The fig. \ref{fs_6} confirm that fact. The joint algorithm converge independently from the SNR and take 100 times less time to converge. The approximated algorithm slightly depend from the SNR in the received data.
+The fig. \ref{fs_7} show that estimated values in the approximated algorithm decrease non-linearly. The shown fact mean that algorithm decrease at each iteration only one set of the variables, symbols or frequency coefficients. The overall conclusion is that approach is effective enough for the data estimation and there are possibility to increase performance with weights addition. Algorithm will show slightly better results.
+The next experiment is estimated the frequency selective channel estimation approach. The experiment was done for the all possible number of known symbols which have certain problem statement. The result for the SER if shown in the fig. \ref{fs_8}. As we can see here, there is one minimum point in symbol estimation. The less unknown symbols in the block leads to the SNR increase, whether the higher number of unknown symbols leads to the SER increase. The point where number of unknown symbols equal to $8$ show the closest result to the original GFDM system with the same block size but known channel and ZF receiver. The channel estimation error has the same behaviour and show the minimum point in the same number of unknown symbols. Important fact is that reconstruction error for the maximal and minimal number of unknown symbols have the same behaviour and lay in the same line. Which mean that maximum knowledge and maximal uncertainty show the same results. This behaviour also show the convexity of the performance function for the number of unknown symbols as variable. In the difference block size should be different optimal value of the unknown symbols, but the average performance must be the worse in comparison with the original GFDM system due to the higher energy per bit with same performance. There is additional important performance gain in the explained algorithm, the algorithm decrease the self-interference in the system from known symbols. The algorithm also can be written for the overall interference decrease, but better to use this algorithm after the semi-blind receiver.
+
+\clearpage

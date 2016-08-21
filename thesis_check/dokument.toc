@@ -1,0 +1,40 @@
+\contentsline {chapter}{\nonumberline List of Figures}{4}{chapter*.2}
+\contentsline {chapter}{\nonumberline List of Tables}{6}{chapter*.3}
+\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.5}
+\contentsline {section}{\numberline {1.1}Tensor based processing}{2}{section.6}
+\contentsline {subsection}{\numberline {1.1.1}PARATUCK2 model}{4}{subsection.20}
+\contentsline {section}{\numberline {1.2}Generalized frequency division modulation systems}{6}{section.27}
+\contentsline {subsection}{\numberline {1.2.1}Time filter construction principles}{7}{subsection.28}
+\contentsline {chapter}{\numberline {2}Generalized frequency division multiplexing single input single output}{14}{chapter.37}
+\contentsline {section}{\numberline {2.1}System model}{14}{section.38}
+\contentsline {section}{\numberline {2.2}Additive white Gaussian noise channel}{17}{section.54}
+\contentsline {subsection}{\numberline {2.2.1}Zero forcing solution}{17}{subsection.57}
+\contentsline {subsection}{\numberline {2.2.2}Matched filter solution}{19}{subsection.68}
+\contentsline {section}{\numberline {2.3}Selection coefficients search}{20}{section.75}
+\contentsline {subsection}{\numberline {2.3.1}Semi-blind receiver}{21}{subsection.79}
+\contentsline {subsection}{\numberline {2.3.2}Approximated semi-blind receiver}{21}{subsection.80}
+\contentsline {subsection}{\numberline {2.3.3}Joint semi-blind receiver}{25}{subsection.97}
+\contentsline {section}{\numberline {2.4}Frequency selective channel estimation}{28}{section.114}
+\contentsline {subsection}{\numberline {2.4.1}Approximated channel estimation}{28}{subsection.115}
+\contentsline {subsection}{\numberline {2.4.2}Channel estimation}{31}{subsection.127}
+\contentsline {section}{\numberline {2.5}Simulation results}{36}{section.162}
+\contentsline {section}{\numberline {2.6}Conclusion}{47}{section.178}
+\contentsline {chapter}{\numberline {3}Generalized frequency division multiplexing multiple input multiple output}{50}{chapter.179}
+\contentsline {section}{\numberline {3.1}System model}{50}{section.180}
+\contentsline {section}{\numberline {3.2}Sub-carrier coefficient update approach}{53}{section.191}
+\contentsline {subsection}{\numberline {3.2.1}Approximated approach}{53}{subsection.192}
+\contentsline {subsection}{\numberline {3.2.2}MIMO model based approach}{54}{subsection.193}
+\contentsline {subsection}{\numberline {3.2.3}Decomposition based approach}{57}{subsection.219}
+\contentsline {subsubsection}{\numberline {3.2.3.1}rank analysis}{63}{subsubsection.262}
+\contentsline {section}{\numberline {3.3}Semi-blind receiver for MIMO}{65}{section.284}
+\contentsline {section}{\numberline {3.4}The system model for frequency selective channel}{67}{section.293}
+\contentsline {subsubsection}{\numberline {3.4.0.1}Least squares solution for the channel estimation}{71}{subsubsection.314}
+\contentsline {subsection}{\numberline {3.4.1}The semi-blind receiver for channel estimation}{72}{subsection.318}
+\contentsline {subsection}{\numberline {3.4.2}Simplified semi-blind receiver}{73}{subsection.321}
+\contentsline {subsection}{\numberline {3.4.3}Semi-blind receiver with interference cancellation}{73}{subsection.325}
+\contentsline {subsubsection}{\numberline {3.4.3.1}Regularization for the semi-blind receiver}{74}{subsubsection.332}
+\contentsline {subsection}{\numberline {3.4.4}Newton based semi-blind receiver}{75}{subsection.333}
+\contentsline {section}{\numberline {3.5}Simulation results}{77}{section.344}
+\contentsline {section}{\numberline {3.6}Conclusion}{85}{section.355}
+\contentsline {chapter}{Acronyms}{88}{chapter*.356}
+\contentsline {chapter}{\nonumberline Bibliography}{89}{chapter*.357}
